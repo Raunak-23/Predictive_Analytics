@@ -5,3 +5,21 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
+
+[tool.pyright]
+extraPaths = [
+    "Email_classification",
+    "Email_classification/src",
+    "Crime_Indicent_Analysis",
+    "Crime_Indicent_Analysis/src",
+    "Customer_Segmentation",
+    "Customer_Segmentation/src",
+    "House_price_pred",
+    "House_price_pred/src",
+    "Medical_diagnosis_support",
+    "Medical_diagnosis_support/src",
+    "Transaction_Recommender",
+    "Transaction_Recommender/src",
+    "Tweet_Sentiment_Analysis",
+    "Tweet_Sentiment_Analysis/src"
+]

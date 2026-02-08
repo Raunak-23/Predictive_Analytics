@@ -18,12 +18,27 @@ from pathlib import Path
 from typing import Any, Callable
 
 
+try:
+    from dotenv import find_dotenv, load_dotenv
+    _env_path = find_dotenv(usecwd=True)
+    if not _env_path:
+        for _cand in [Path("../.env"), Path(".env"), Path("Email_classification/.env")]:
+            if _cand.exists():
+                _env_path = str(_cand.resolve())
+                break
+    if _env_path:
+        load_dotenv(_env_path, override=True)
+    else:
+        load_dotenv(override=True)
+except ImportError:
+    pass
+
 EMAIL_PATTERN = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 PHONE_PATTERN = re.compile(
     r"(?<!\d)(?:\+\d{1,2}\s)?(?:\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}(?!\d)"
 )
 
-LLM_MODEL = "gemini-1.5-flash"
+LLM_MODEL = "gemini-3.5-flash-lite"
 REPLY_CLASSES = {"request", "complaint", "feedback", "inquiry", "urgent_action"}
 
 DRAFT_INSTRUCTIONS = """You create a professional email reply draft for human review.

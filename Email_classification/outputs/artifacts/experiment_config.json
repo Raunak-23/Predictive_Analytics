@@ -16,33 +16,7 @@
     "inquiry",
     "request"
   ],
-  "timestamp_utc": "2026-08-04T18:44:37.222528+00:00",
+  "timestamp_utc": "2026-09-07T14:52:37.502784+00:00",
   "d1_dataset_path": "..\\data\\business_email_intent.csv",
-  "external_dataset_path": "..\\data\\external_test_emails.csv",
-  "d1_locked_test_macro_f1": 1.0,
-  "d1_external_test_samples": 56,
-  "d2_report_locked_test": {
-    "model": "linear_svc",
-    "macro_f1": 0.992417,
-    "source": "submitted_report"
-  },
-  "d3_report_locked_test": {
-    "model": "linear_svc",
-    "macro_f1": 0.984654,
-    "source": "submitted_report"
-  },
-  "selective_classification": {
-    "reported_margin_threshold": 0.15,
-    "reported_coverage": 0.942,
-    "reported_selective_error": 0.008,
-    "artifact_curve_contains_threshold": true,
-    "artifact_metrics_at_threshold_verified": false
-  },
-  "llm": {
-    "model": "gemini-1.5-flash",
-    "temperature": 0.2,
-    "max_output_tokens": 512,
-    "input_policy": "redact subject and body before external API transmission",
-    "pii_baseline": ["email addresses -> [EMAIL_REDACTED]", "phone numbers -> [PHONE_REDACTED]"]
-  }
+  "external_dataset_path": "..\\data\\external_test_emails.csv"
 }
