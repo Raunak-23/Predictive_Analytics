@@ -11,9 +11,9 @@ This project implements a complete email classification pipeline following the V
 | Stage | Task | Dataset | Classes | Best Model | Test Macro F1 |
 |-------|------|---------|---------|------------|---------------|
 | **D1** | Business Intent Classification | `business_email_intent.csv` (2000 emails) | 4 (complaint, feedback, inquiry, request) | MultinomialNB (TF-IDF) | **1.000** |
-| **D2** | Binary Spam Detection (Enron) | Enron-Spam (~31.6k emails) | 2 (legitimate, spam) | LinearSVC (TF-IDF) | **0.998** |
-| **D3** | Binary Spam Detection (SpamAssassin) | SpamAssassin (~6k emails) | 2 (legitimate, spam) | ComplementNB (TF-IDF) | **0.995** |
-| **D4** | Challenge Set Evaluation | 24 curated cases | 4 intents | MultinomialNB + LLM drafts | 100% classification accuracy |
+| **D2** | Binary Spam Detection (Enron) | Enron-Spam (~31.7k emails) | 2 (legitimate, spam) | LinearSVC (TF-IDF) | **0.992417** |
+| **D3** | Binary Spam Detection (SpamAssassin) | SpamAssassin (~6.0k emails) | 2 (legitimate, spam) | LinearSVC (TF-IDF) | **0.984654** |
+| **D4** | Safety and draft evaluation | 12 synthetic safety tests + fixed 24-case challenge set | 4 intents | MultinomialNB + LLM drafts | See artifacts |
 
 ---
 
@@ -40,10 +40,10 @@ This project implements a complete email classification pipeline following the V
 ### Stage D4: Research Extension
 - **Sentence Embeddings**: `all-MiniLM-L6-v2` + LogisticRegression baseline (Macro F1: 0.993)
 - **Bi-LSTM**: Trainable embeddings + Bidirectional LSTM (128-dim, 64 units, 0.3 dropout)
-  - Training time: ~327s (20 epochs, early stopping)
+  - Training time: 182.5s (20 epochs, early stopping; supported by submitted-report evidence)
   - Parameters: 145,348 | Model size: 0.55 MB
   - Test Macro F1: **1.000**
-- **LLM Draft Generation**: Gemini 3.5 Flash Lite (capped at 15 calls, 20 RPM)
+- **LLM Draft Generation**: Gemini 1.5 Flash (temperature 0.2, max output tokens 512; capped at 15 calls, 20 RPM)
   - Template + structured JSON output with safety rules
   - Human evaluation worksheet (5-point Likert: relevance, faithfulness, tone, completeness, safety)
 - **Challenge Set**: 24 cases across 4 intents × 3 difficulties × 2 categories
@@ -73,8 +73,8 @@ This project implements a complete email classification pipeline following the V
 ### D2/D3 Best Models (Locked Test)
 | Dataset | Best Model | Test Macro F1 | 95% CI |
 |---------|------------|---------------|--------|
-| Enron-Spam | LinearSVC | 0.998 | [0.995, 1.000] |
-| SpamAssassin | ComplementNB | 0.995 | [0.988, 1.000] |
+| Enron-Spam | LinearSVC | 0.992417 | Report locked-test result |
+| SpamAssassin | LinearSVC | 0.984654 | Report locked-test result |
 
 ### Representation Comparison (D1)
 | Model | Representation | Macro F1 | Params | Fit Time | Model Size |
@@ -82,7 +82,7 @@ This project implements a complete email classification pipeline following the V
 | MultinomialNB | TF-IDF (1,2) sparse | 1.000 | ~22k | 2.1s | 4.2 MB |
 | LogisticRegression | TF-IDF (1,2) sparse | 1.000 | ~22k | 3.4s | 4.2 MB |
 | all-MiniLM-L6-v2 + LR | Dense embeddings (384-d) | 0.993 | 390k | 19.0s | 90 MB |
-| Bi-LSTM (trainable) | Trainable emb + BiLSTM | 1.000 | 145k | 327s | 0.55 MB |
+| Bi-LSTM (trainable) | Trainable emb + BiLSTM | 1.000 | 145k | 182.5s | 0.55 MB |
 
 ---
 
@@ -130,6 +130,14 @@ python src/download_data.py
 # Normalize D2/D3 to unified schema
 python src/prepare_d2_d3.py
 ```
+
+### Run CLI Inference
+The saved D1 pipeline can be loaded directly without retraining:
+```bash
+python -m src.infer_cli --subject "Invoice question" --body "Please send a copy."
+python -m src.infer_cli --text "subject: Password reset\nbody: Please help" --json
+```
+This is local classification only; it does not call Gemini or send email.
 
 ### Expected Outputs
 ```

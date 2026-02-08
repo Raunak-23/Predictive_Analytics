@@ -1,5 +1,5 @@
 {
-  "threshold": 0.0,
+  "threshold": 0.15,
   "coverage": 1.0,
   "selective_error": 0.0,
   "model": "multinomial_nb"
