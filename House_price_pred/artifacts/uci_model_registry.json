@@ -1,0 +1,51 @@
+{
+  "best_model": {
+    "name": "Tuned Random Forest",
+    "file": "best_model.joblib",
+    "metrics": {
+      "RMSE": 5.517373461880423,
+      "R2": 0.8185416292513018,
+      "MAE": 3.7341864508080875,
+      "MAPE": 11.608027551237724
+    }
+  },
+  "all_models": {
+    "Simple Linear Regression": "artifacts/uci_simple_linear_regression.joblib",
+    "Multiple Linear Regression": "artifacts/uci_multiple_linear_regression.joblib",
+    "Ridge Regression": "artifacts/uci_ridge_regression.joblib",
+    "Lasso Regression": "artifacts/uci_lasso_regression.joblib",
+    "Elastic Net": "artifacts/uci_elastic_net.joblib",
+    "Decision Tree": "artifacts/uci_decision_tree.joblib",
+    "Random Forest": "artifacts/uci_random_forest.joblib",
+    "Gradient Boosting": "artifacts/uci_gradient_boosting.joblib",
+    "XGBoost": "artifacts/uci_xgboost.joblib",
+    "Polynomial Regression": "artifacts/uci_polynomial_regression.joblib",
+    "Tuned_Ridge": "artifacts/uci_Tuned_Ridge.joblib",
+    "Tuned_Random_Forest": "artifacts/uci_Tuned_Random_Forest.joblib",
+    "Tuned_XGBoost": "artifacts/uci_Tuned_XGBoost.joblib"
+  },
+  "tuned_models": {
+    "Ridge": {
+      "alpha": 11.288378916846883,
+      "file": "Tuned_Ridge.joblib"
+    },
+    "Random_Forest": {
+      "params": {
+        "model__max_depth": 10,
+        "model__min_samples_leaf": 2,
+        "model__n_estimators": 200
+      },
+      "file": "Tuned_Random_Forest.joblib"
+    },
+    "XGBoost": {
+      "params": {
+        "model__learning_rate": 0.03,
+        "model__max_depth": 4,
+        "model__n_estimators": 100,
+        "model__subsample": 0.7
+      },
+      "file": "Tuned_XGBoost.joblib"
+    }
+  },
+  "preprocessing_pipeline": "preprocessing_pipeline.joblib"
+}
