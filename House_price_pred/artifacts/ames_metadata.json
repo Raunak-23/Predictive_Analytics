@@ -1,0 +1,19 @@
+{
+  "dataset": "Ames Housing",
+  "target": "SalePrice",
+  "train_shape": [
+    2344,
+    79
+  ],
+  "test_shape": [
+    586,
+    79
+  ],
+  "best_model": "XGBoost",
+  "best_metrics": {
+    "RMSE": 25100.92014249677,
+    "R2": 0.9214153289794922,
+    "MAE": 15045.40625
+  },
+  "random_seed": 42
+}
