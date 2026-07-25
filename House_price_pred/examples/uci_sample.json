@@ -1,0 +1,74 @@
+[
+  {
+    "X1 transaction date":2012.917,
+    "X2 house age":32.0,
+    "X3 distance to the nearest MRT station":84.87882,
+    "X4 number of convenience stores":10,
+    "X5 latitude":24.98298,
+    "X6 longitude":121.54024,
+    "Y house price of unit area":37.9
+  },
+  {
+    "X1 transaction date":2012.917,
+    "X2 house age":19.5,
+    "X3 distance to the nearest MRT station":306.5947,
+    "X4 number of convenience stores":9,
+    "X5 latitude":24.98034,
+    "X6 longitude":121.53951,
+    "Y house price of unit area":42.2
+  },
+  {
+    "X1 transaction date":2013.583,
+    "X2 house age":13.3,
+    "X3 distance to the nearest MRT station":561.9845,
+    "X4 number of convenience stores":5,
+    "X5 latitude":24.98746,
+    "X6 longitude":121.54391,
+    "Y house price of unit area":47.3
+  },
+  {
+    "X1 transaction date":2013.5,
+    "X2 house age":13.3,
+    "X3 distance to the nearest MRT station":561.9845,
+    "X4 number of convenience stores":5,
+    "X5 latitude":24.98746,
+    "X6 longitude":121.54391,
+    "Y house price of unit area":54.8
+  },
+  {
+    "X1 transaction date":2012.833,
+    "X2 house age":5.0,
+    "X3 distance to the nearest MRT station":390.5684,
+    "X4 number of convenience stores":5,
+    "X5 latitude":24.97937,
+    "X6 longitude":121.54245,
+    "Y house price of unit area":43.1
+  },
+  {
+    "X1 transaction date":2012.667,
+    "X2 house age":7.1,
+    "X3 distance to the nearest MRT station":2175.03,
+    "X4 number of convenience stores":3,
+    "X5 latitude":24.96305,
+    "X6 longitude":121.51254,
+    "Y house price of unit area":32.1
+  },
+  {
+    "X1 transaction date":2012.667,
+    "X2 house age":34.5,
+    "X3 distance to the nearest MRT station":623.4731,
+    "X4 number of convenience stores":7,
+    "X5 latitude":24.97933,
+    "X6 longitude":121.53642,
+    "Y house price of unit area":40.3
+  },
+  {
+    "X1 transaction date":2013.417,
+    "X2 house age":20.3,
+    "X3 distance to the nearest MRT station":287.6025,
+    "X4 number of convenience stores":6,
+    "X5 latitude":24.98042,
+    "X6 longitude":121.54228,
+    "Y house price of unit area":46.7
+  }
+]

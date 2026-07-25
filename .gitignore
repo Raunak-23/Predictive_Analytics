@@ -1,2 +1,24 @@
+# ── Office / report files (kept local, never pushed) ──
 *.pdf
+*.doc
 *.docx
+
+# Microsoft Office lock / temp files (must never be committed)
+~$*
+
+# ── OS / editor ──
+.DS_Store
+Thumbs.db
+*.lnk
+.idea/
+.vscode/
+
+# ── Python caches & virtual environments ──
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+env.bak/

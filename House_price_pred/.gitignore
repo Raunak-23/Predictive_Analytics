@@ -1,0 +1,19 @@
+# Project-scoped hygiene (mirrors root .gitignore; keeps model artifacts tracked).
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python caches & virtual environments
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+
+# NOTE: artifacts/ is intentionally TRACKED — shipped models/pipelines are needed
+# for inference without retraining (the professor samples artifacts, not data).
