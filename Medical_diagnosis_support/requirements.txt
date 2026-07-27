@@ -1,0 +1,22 @@
+# Medical Diagnosis Support - Lab 02 (Decision Trees) dependencies
+# Verified on Python 3.10.x. Install:  pip install -r requirements.txt
+
+# Numerical / data
+numpy==2.2.6
+pandas==2.3.2
+scipy==1.15.3
+
+# Machine learning (Decision Tree CART, Random Forest, tuning, metrics, persistence)
+scikit-learn==1.7.2
+joblib==1.5.2
+
+# Visualization (notebooks + figures)
+matplotlib==3.10.6
+seaborn==0.13.2
+
+# Dataset access (UCI ML Repository) + interactive notebooks
+ucimlrepo==0.0.7
+jupyter
+nbconvert
+
+# GUI (Tkinter ships with the CPython standard library; no extra dep required)
