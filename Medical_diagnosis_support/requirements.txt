@@ -19,4 +19,5 @@ ucimlrepo==0.0.7
 jupyter
 nbconvert
 
-# GUI (Tkinter ships with the CPython standard library; no extra dep required)
+# GUI (Streamlit — `streamlit run src/meddiag_streamlit.py`)
+streamlit>=1.32

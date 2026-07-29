@@ -7,7 +7,7 @@ Single entry point for the three trained pipelines (Breast Cancer Wisconsin
 Diagnostic, Early Stage Diabetes Risk Prediction, Heart Disease - Cleveland).
 It loads serialized artifacts (final pipeline + operating threshold + metadata)
 so the professor can run sample inference **without retraining**, and also
-supports retraining on new data, threshold adjustment, and a Tkinter GUI.
+supports retraining on new data, threshold adjustment, and a Streamlit GUI.
 
 Commands
 --------
@@ -20,7 +20,7 @@ Commands
   retrain      Refit the whole training workflow on new data, overwrite artifacts.
   interactive  Prompt for feature values one at a time and predict.
   explain      Trace the decision path of a single record through the tree.
-  gui          Launch the Tkinter desktop GUI.
+  gui          Launch the Streamlit desktop GUI.
 
 All `predict` / `samples` / `evaluate` / `explain` commands load only the saved
 pipelines + threshold + metadata; nothing is retrained. Use `retrain` to fit the
@@ -785,7 +785,7 @@ def build_parser():
             "  python src/meddiag_cli.py explain breast examples/breast_sample.json --index 0\n"
             "  python src/meddiag_cli.py interactive diabetes\n"
             "  python src/meddiag_cli.py retrain breast data/breast_cancer_wisconsin.csv\n"
-            "  python src/meddiag_cli.py gui        # launch the Tkinter GUI\n"
+            "  python src/meddiag_cli.py gui        # launch the Streamlit GUI\n"
         ),
     )
     sub = parser.add_subparsers(dest="command", required=True)
@@ -794,7 +794,7 @@ def build_parser():
                         version="meddiag-cli 1.0 (MDI3003 Lab 02 prototype)")
 
     sub.add_parser("info", help="Show Python/library versions + artifact inventory")
-    sub.add_parser("gui", help="Launch the Tkinter desktop GUI")
+    sub.add_parser("gui", help="Launch the Streamlit desktop GUI")
 
     p = sub.add_parser("samples", help="Fetch & predict on bundled example fixtures "
                                         "(`examples/<ds>_sample.json`)")
@@ -854,10 +854,14 @@ def main(argv=None):
     if args.command == "gui":
         # lazy import keeps `info`/CLI lightweight on headless machines
         try:
-            from meddiag_gui import launch
-            launch()
+            import streamlit.web.cli as stcli
+            import sys as _sys
+            app_path = os.path.join(SCRIPT_DIR, "meddiag_streamlit.py")
+            _sys.argv = ["streamlit", "run", app_path]
+            stcli.main()
         except Exception as e:
-            print(f"\n[ERROR] could not launch GUI: {e}\n", file=sys.stderr)
+            print(f"\n[ERROR] could not launch Streamlit GUI: {e}\n", file=sys.stderr)
+            print("Try: pip install streamlit && streamlit run src/meddiag_streamlit.py\n")
             sys.exit(2)
         return
     cmds = {
