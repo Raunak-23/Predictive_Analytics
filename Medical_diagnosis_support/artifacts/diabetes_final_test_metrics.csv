@@ -1,0 +1,2 @@
+threshold,TN,FP,FN,TP,N,accuracy,balanced_accuracy,sensitivity,specificity,precision_ppv,npv,f1,mcc,roc_auc,pr_auc,brier,expected_cost
+0.615,40,0,2,62,104,0.9807692307692307,0.984375,0.96875,1.0,1.0,0.9523809523809523,0.9841269841269841,0.9605306073306814,1.0,1.0,0.01230944611796166,10.0

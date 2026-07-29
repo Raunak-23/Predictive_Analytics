@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """
-Build the three Lab-02 Jupyter notebooks from template cells.
+Build the Lab-02 Jupyter notebooks from template cells.
 
 Run once to (re)generate:
     notebooks/breast_cancer.ipynb      (core lab - Breast Cancer Wisconsin)
     notebooks/diabetes_risk.ipynb     (extension - mixed / categorical)
-    notebooks/heart_disease.ipynb     (extension - missing values + subgroup)
 
 Every notebook imports the shared engine ``src/meddiag_common`` and follows the
 same 20-step protocol so the notebook, CLI and GUI cannot disagree. Markdown
@@ -142,11 +141,6 @@ def header_cells(ds_key: str):
             "Lab 02 — EXTENDED study  ·  Early Stage Diabetes Risk Prediction "
             "(mixed / categorical)",
         ),
-        "heart": (
-            "Medical Diagnosis Support — Disease Classification using Decision Trees",
-            "Lab 02 — EXTENDED study  ·  Heart Disease (Cleveland; missing values "
-            "+ subgroup)",
-        ),
     }
     main, sub = title_map[ds_key]
 
@@ -184,23 +178,6 @@ def header_cells(ds_key: str):
             "and uncertainty reported; do not over-interpret tiny groups)."
         )
         subgroup_code = "GENDER"
-    else:
-        charter_extra = (
-            "- **Positive class** = heart disease present (`num > 0`) remapped to `1`.\n"
-            "- **Missingness**: `ca` (4) and `thal` (2) are imputed *inside training "
-            "folds only* and treated as categorical codes.\n"
-            "- **Subgroup lens**: sex (1=Male / 0=Female) is a sensitive attribute "
-            "used only for a fairness-style audit.\n"
-            "- **Success criteria**: as above plus a missingness plot and the "
-            "subgroup analysis by sex.\n"
-        )
-        selected_feats = '["age", "thalach", "oldpeak", "chol"]'
-        subgroup_note = (
-            "We evaluate sensitivity and specificity by **sex** (sample sizes and "
-            "uncertainty reported)."
-        )
-        subgroup_code = "SEX"
-
     cells = [
         md(f"""# {main}
 
@@ -1027,7 +1004,6 @@ def build_notebook(ds_key: str) -> str:
     name_map = {
         "breast": "breast_cancer.ipynb",
         "diabetes": "diabetes_risk.ipynb",
-        "heart": "heart_disease.ipynb",
     }
     path = os.path.join(NB_DIR, name_map[ds_key])
     with open(path, "w", encoding="utf-8") as f:
@@ -1037,7 +1013,7 @@ def build_notebook(ds_key: str) -> str:
 
 def main():
     print("Building Lab 02 notebooks...")
-    for ds in ("breast", "diabetes", "heart"):
+    for ds in ("breast", "diabetes"):
         path = build_notebook(ds)
         print(f"  [OK] {path}")
     print("Done.")

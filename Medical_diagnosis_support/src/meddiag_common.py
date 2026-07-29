@@ -8,7 +8,7 @@ This module is the single source of truth used by
   * ``src/meddiag_cli.py`` (inference / evaluation / retraining / registry),
   * ``src/meddiag_gui.py`` (Tkinter desktop GUI).
 
-It understands three UCI datasets in a dataset-aware way::
+It understands two UCI datasets in a dataset-aware way::
 
     breast     Breast Cancer Wisconsin (Diagnostic)  - core, 30 numeric, no missing
     diabetes   Early Stage Diabetes Risk Prediction  - 15 binary symptoms + gender + age
@@ -202,40 +202,6 @@ DATASETS = {
             "irritability": ["No", "Yes"], "delayed_healing": ["No", "Yes"],
             "partial_paresis": ["No", "Yes"], "muscle_stiffness": ["No", "Yes"],
             "alopecia": ["No", "Yes"], "obesity": ["No", "Yes"],
-        },
-    ),
-    "heart": DatasetSpec(
-        key="heart",
-        ucid=45,
-        display_name="Heart Disease (Cleveland, UCI id 45)",
-        csv_name="heart_disease.csv",
-        doi="10.24432/C52P4X",
-        source_note=("Janosi, Steinbrunn, Pfisterer, Detrano. UCI ML Repository, "
-                     "Cleveland subset. 303 rows; 13 predictors; target 'num' 0-4 "
-                     "binarised here to presence (num>0) vs absence (num=0)."),
-        target_col="num",
-        positive_raw_values=(1, 2, 3, 4),   # any narrowing > 0  -> disease present
-        positive_label="Disease present",
-        negative_label="No disease",
-        class_names=("No disease", "Disease"),
-        numeric_cols=("age", "trestbps", "chol", "thalach", "oldpeak"),
-        categorical_cols=("sex", "cp", "fbs", "restecg", "exang", "slope", "ca", "thal"),
-        observation_unit="One patient angiographic examination.",
-        population_note=("Cleveland clinic, 1980s; small and geographically specific. "
-                         "Missing values in ca (4) and thal (2) are imputed within "
-                         "training folds only. ca and thal are discrete codes treated "
-                         "as categorical so the imputer + one-hot encoder handle "
-                         "absence correctly."),
-        category_codes={
-            "sex": {1: "Male", 0: "Female"},
-            "cp": {1: "typical angina", 2: "atypical angina",
-                   3: "non-anginal", 4: "asymptomatic"},
-            "fbs": {1: ">120 mg/dl", 0: "<=120 mg/dl"},
-            "restecg": {0: "normal", 1: "ST-T abn.", 2: "LVH"},
-            "exang": {1: "yes", 0: "no"},
-            "slope": {1: "upsloping", 2: "flat", 3: "downsloping"},
-            "ca": {0: "0 vessels", 1: "1", 2: "2", 3: "3"},
-            "thal": {3: "normal", 6: "fixed defect", 7: "reversible defect"},
         },
     ),
 }

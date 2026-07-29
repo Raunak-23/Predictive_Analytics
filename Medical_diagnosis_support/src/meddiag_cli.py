@@ -12,12 +12,19 @@ supports retraining on new data, threshold adjustment, and a Tkinter GUI.
 Commands
 --------
   info         Show environment versions + artifact inventory (sanity check).
+  samples      Isolated inference on bundled `examples/<ds>_sample.json` fixtures - the
+               quickest sample-inference fetch from saved artefacts (no retraining).
   list         Print the model registry, CV + test metrics and artifact files.
   predict      Run inference on a CSV/JSON file -> probabilities + class calls.
   evaluate     Inference + scoring against ground-truth labels (full metric block).
   retrain      Refit the whole training workflow on new data, overwrite artifacts.
   interactive  Prompt for feature values one at a time and predict.
   explain      Trace the decision path of a single record through the tree.
+  gui          Launch the Tkinter desktop GUI.
+
+All `predict` / `samples` / `evaluate` / `explain` commands load only the saved
+pipelines + threshold + metadata; nothing is retrained. Use `retrain` to fit the
+leakage-safe workflow on a new dataset and overwrite the saved artefacts.
 
 Layout (expected relative to the project root)
 ----------------------------------------------
@@ -39,8 +46,6 @@ import argparse
 import json
 import os
 import sys
-
-warnings_unused = None  # keep import order tidy
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 if SCRIPT_DIR not in sys.path:
@@ -198,6 +203,69 @@ def cmd_info(args):
     print()
     print("  Ready: all best pipelines + thresholds present." if all_ok
           else "  [!] At least one pipeline/threshold is missing - train via the notebooks or `retrain`.")
+
+
+# ============================================================
+# COMMAND: samples  (isolated inference on bundled example fixtures)
+# ============================================================
+def cmd_samples(args):
+    """Predict on the bundled `examples/<dataset>_sample.json` fixture without
+    requiring the user to know a path - the quickest way to *fetch a sample
+    inference* from the saved artefacts. Falls back to `_sample.csv` then to the
+    first rows of the cached dataset so the command always produces something.
+    This is fully isolated inference: it only loads saved pipelines,
+    never retrains.
+    """
+    ds = args.dataset
+    s = M.spec(ds)
+    meta = M.load_metadata(ds)
+    if not meta:
+        raise FileNotFoundError(
+            f"No trained pipeline for '{ds}'. Run `retrain {ds} "
+            f"data/{s.csv_name}` first.")
+    thr = float(args.threshold) if args.threshold is not None else meta["threshold"]
+    # locate a fixture in preference order
+    cands = [os.path.join(EXAMPLES_DIR, f"{ds}_sample.json"),
+             os.path.join(EXAMPLES_DIR, f"{ds}_sample.csv"),
+             os.path.join(DATA_DIR, s.csv_name)]
+    filepath = next((p_ for p_ in cands if os.path.exists(p_)), None)
+    if filepath is None:
+        raise FileNotFoundError(
+            f"No sample fixture for '{ds}'. Expected one of {cands}.")
+    print(_banner(f"SAMPLES - {ds.upper()} ({meta['dataset_display_name']})"))
+    print(f"  Fixture : {filepath}")
+    print(f"  Model   : {args.model or 'best'}   (threshold {thr:.3f})")
+    print(f"  Mode    : isolated inference from saved artefacts (no retraining)")
+
+    pipe, name, _ = _pick_model(ds, args.model, args.tag)
+    print(f"  {OK} loaded: {name}")
+    df = load_data(filepath)
+    # If the cached dataset was selected, drop the target & take only a few rows.
+    if os.path.abspath(filepath) == os.path.abspath(os.path.join(DATA_DIR, s.csv_name)):
+        df = df.drop(columns=[c for c in (s.target_col,) if c in df.columns]).head(4)
+    X = _align_features(ds, df, meta)
+    proba = pipe.predict_proba(X)[:, 1]
+    class_names = meta["class_names"]
+    print()
+    print(f"  {_hr(62)}")
+    print(f"  PREDICTIONS  (positive = 1 = '{meta['positive_class']}'; thr {thr:.3f})")
+    print(f"  {_hr(62)}")
+    for i in range(len(X)):
+        cls = class_names[1] if proba[i] >= thr else class_names[0]
+        flag = "POSITIVE" if proba[i] >= thr else "negative"
+        print(f"  [{i+1:>2}] P={proba[i]:.4f}  -> {flag} ({cls})")
+    if args.output:
+        out = df.copy()
+        out[f"p_{meta['positive_class']}"] = proba
+        out["predicted_class"] = [class_names[1] if p >= thr else class_names[0]
+                                   for p in proba]
+        if args.output.lower().endswith(".csv"):
+            out.to_csv(args.output, index=False)
+        else:
+            with open(args.output, "w", encoding="utf-8") as f:
+                json.dump(out.to_dict(orient="records"), f, indent=2, default=str)
+        print(f"\n  {OK} predictions saved -> {args.output}")
+    print("\n  Educational prototype - NOT a clinical diagnostic system.\n")
 
 
 # ============================================================
@@ -710,9 +778,10 @@ def build_parser():
         epilog=(
             "Examples:\n"
             "  python src/meddiag_cli.py info\n"
+            "  python src/meddiag_cli.py samples breast          # isolated inference on bundled fixtures\n"
             "  python src/meddiag_cli.py list breast\n"
             "  python src/meddiag_cli.py predict breast examples/breast_sample.json\n"
-            "  python src/meddiag_cli.py evaluate heart examples/heart_sample.csv\n"
+            "  python src/meddiag_cli.py evaluate diabetes examples/diabetes_sample.csv\n"
             "  python src/meddiag_cli.py explain breast examples/breast_sample.json --index 0\n"
             "  python src/meddiag_cli.py interactive diabetes\n"
             "  python src/meddiag_cli.py retrain breast data/breast_cancer_wisconsin.csv\n"
@@ -721,8 +790,19 @@ def build_parser():
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
+    parser.add_argument("--version", action="version",
+                        version="meddiag-cli 1.0 (MDI3003 Lab 02 prototype)")
+
     sub.add_parser("info", help="Show Python/library versions + artifact inventory")
     sub.add_parser("gui", help="Launch the Tkinter desktop GUI")
+
+    p = sub.add_parser("samples", help="Fetch & predict on bundled example fixtures "
+                                        "(`examples/<ds>_sample.json`)")
+    p.add_argument("dataset", choices=list(M.CHOICES))
+    p.add_argument("-o", "--output", help="Save predictions to .csv/.json")
+    p.add_argument("--model", help="Use a named saved model (else the best)")
+    p.add_argument("--tag", help="Artifact tag (defaults to dataset name)")
+    p.add_argument("--threshold", type=float, help="Override the saved threshold")
 
     p = sub.add_parser("list", help="Show the model registry, CV + test metrics")
     p.add_argument("dataset", choices=list(M.CHOICES))
@@ -781,7 +861,7 @@ def main(argv=None):
             sys.exit(2)
         return
     cmds = {
-        "info": cmd_info, "list": cmd_list, "predict": cmd_predict,
+        "info": cmd_info, "samples": cmd_samples, "list": cmd_list, "predict": cmd_predict,
         "evaluate": cmd_evaluate, "retrain": cmd_retrain,
         "interactive": cmd_interactive, "explain": cmd_explain,
     }

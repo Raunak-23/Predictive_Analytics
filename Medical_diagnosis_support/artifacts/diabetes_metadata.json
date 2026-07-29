@@ -1,0 +1,278 @@
+{
+  "dataset_key": "diabetes",
+  "dataset_display_name": "Early Stage Diabetes Risk Prediction",
+  "uci_id": 529,
+  "doi": "10.24432/C5VG8H",
+  "source_note": "Islam & Rahman. UCI ML Repository. 520 questionnaire rows; 16 symptom/demographic predictors; target 'class'.",
+  "target_col": "class",
+  "positive_class": "Positive (diabetes)",
+  "negative_class": "Negative",
+  "class_names": [
+    "Negative",
+    "Positive"
+  ],
+  "positive_raw_values": [
+    "Positive"
+  ],
+  "feature_cols": [
+    "age",
+    "gender",
+    "polyuria",
+    "polydipsia",
+    "sudden_weight_loss",
+    "weakness",
+    "polyphagia",
+    "genital_thrush",
+    "visual_blurring",
+    "itching",
+    "irritability",
+    "delayed_healing",
+    "partial_paresis",
+    "muscle_stiffness",
+    "alopecia",
+    "obesity"
+  ],
+  "numeric_cols": [
+    "age"
+  ],
+  "categorical_cols": [
+    "gender",
+    "polyuria",
+    "polydipsia",
+    "sudden_weight_loss",
+    "weakness",
+    "polyphagia",
+    "genital_thrush",
+    "visual_blurring",
+    "itching",
+    "irritability",
+    "delayed_healing",
+    "partial_paresis",
+    "muscle_stiffness",
+    "alopecia",
+    "obesity"
+  ],
+  "category_codes": {
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "polyuria": [
+      "No",
+      "Yes"
+    ],
+    "polydipsia": [
+      "No",
+      "Yes"
+    ],
+    "sudden_weight_loss": [
+      "No",
+      "Yes"
+    ],
+    "weakness": [
+      "No",
+      "Yes"
+    ],
+    "polyphagia": [
+      "No",
+      "Yes"
+    ],
+    "genital_thrush": [
+      "No",
+      "Yes"
+    ],
+    "visual_blurring": [
+      "No",
+      "Yes"
+    ],
+    "itching": [
+      "No",
+      "Yes"
+    ],
+    "irritability": [
+      "No",
+      "Yes"
+    ],
+    "delayed_healing": [
+      "No",
+      "Yes"
+    ],
+    "partial_paresis": [
+      "No",
+      "Yes"
+    ],
+    "muscle_stiffness": [
+      "No",
+      "Yes"
+    ],
+    "alopecia": [
+      "No",
+      "Yes"
+    ],
+    "obesity": [
+      "No",
+      "Yes"
+    ]
+  },
+  "category_codes_serialisable": {
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "polyuria": [
+      "No",
+      "Yes"
+    ],
+    "polydipsia": [
+      "No",
+      "Yes"
+    ],
+    "sudden_weight_loss": [
+      "No",
+      "Yes"
+    ],
+    "weakness": [
+      "No",
+      "Yes"
+    ],
+    "polyphagia": [
+      "No",
+      "Yes"
+    ],
+    "genital_thrush": [
+      "No",
+      "Yes"
+    ],
+    "visual_blurring": [
+      "No",
+      "Yes"
+    ],
+    "itching": [
+      "No",
+      "Yes"
+    ],
+    "irritability": [
+      "No",
+      "Yes"
+    ],
+    "delayed_healing": [
+      "No",
+      "Yes"
+    ],
+    "partial_paresis": [
+      "No",
+      "Yes"
+    ],
+    "muscle_stiffness": [
+      "No",
+      "Yes"
+    ],
+    "alopecia": [
+      "No",
+      "Yes"
+    ],
+    "obesity": [
+      "No",
+      "Yes"
+    ]
+  },
+  "observation_unit": "One questionnaire respondent (early-presentation visit).",
+  "population_note": "Single-source questionnaire from one clinical setting; age is self-reported and gender is a sensitive attribute intended only as a modelled predictor and *subgroup lens*, never as a triage/eligibility criterion.",
+  "n_rows": 520,
+  "n_train": 416,
+  "n_test": 104,
+  "train_prevalence": 0.6153846153846154,
+  "test_prevalence": 0.6153846153846154,
+  "seed": 42,
+  "cv_folds": 5,
+  "test_size": 0.2,
+  "split": "Stratified train_test_split (test_size=0.20, seed=42)",
+  "best_model": "Random Forest",
+  "threshold": 0.615,
+  "threshold_target": 0.95,
+  "threshold_target_satisfied": 0.95,
+  "test_metrics": {
+    "threshold": 0.615,
+    "TN": 40,
+    "FP": 0,
+    "FN": 2,
+    "TP": 62,
+    "N": 104,
+    "accuracy": 0.9807692307692307,
+    "balanced_accuracy": 0.984375,
+    "sensitivity": 0.96875,
+    "specificity": 1.0,
+    "precision_ppv": 1.0,
+    "npv": 0.9523809523809523,
+    "f1": 0.9841269841269841,
+    "mcc": 0.9605306073306814,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "brier": 0.01230944611796166,
+    "expected_cost": 10.0
+  },
+  "pruned_params": {
+    "model__class_weight": "None",
+    "model__criterion": "gini",
+    "model__max_depth": 8,
+    "model__min_samples_leaf": 2,
+    "model__min_samples_split": 2,
+    "model__ccp_alpha": 0.0014423076923076915
+  },
+  "rf_params": {
+    "model__class_weight": "None",
+    "model__max_depth": 8,
+    "model__max_features": "log2",
+    "model__min_samples_leaf": 1,
+    "model__n_estimators": 300
+  },
+  "complexity": {
+    "Basic CART": {
+      "depth": 8,
+      "leaves": 34,
+      "nodes": 67,
+      "criterion": "gini",
+      "ccp_alpha": 0.0
+    },
+    "Tuned and pruned CART": {
+      "depth": 7,
+      "leaves": 24,
+      "nodes": 47,
+      "criterion": "gini",
+      "ccp_alpha": 0.0014423076923076915
+    }
+  },
+  "default_threshold_metrics": {
+    "threshold": 0.5,
+    "TN": 40.0,
+    "FP": 0.0,
+    "FN": 1.0,
+    "TP": 63.0,
+    "N": 104.0,
+    "accuracy": 0.9903846153846154,
+    "balanced_accuracy": 0.9921875,
+    "sensitivity": 0.984375,
+    "specificity": 1.0,
+    "precision_ppv": 1.0,
+    "npv": 0.975609756097561,
+    "f1": 0.9921259842519685,
+    "mcc": 0.9799825782423566,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "brier": 0.01230944611796166,
+    "expected_cost": 5.0
+  },
+  "cost_fn": 5.0,
+  "cost_fp": 1.0,
+  "software": {
+    "python": "3.10.0",
+    "scikit_learn": "1.7.2",
+    "pandas": "2.3.2",
+    "numpy": "2.2.6",
+    "joblib": "1.5.2",
+    "xgboost": "3.2.0"
+  },
+  "trained_at": "2026-07-29T03:34:07",
+  "intended_use": "Educational predictive-analytics laboratory prototype for MDI3003 Lab 02 only.",
+  "prohibited_use": "Clinical diagnosis, treatment, triage, screening, or any patient-management decision."
+}

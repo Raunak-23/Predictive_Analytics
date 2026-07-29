@@ -17,3 +17,10 @@ Thumbs.db
 _pdf_extract.txt
 _build_nb.py
 *.log
+nul
+~$*
+
+# Generated artifacts are intentionally checked in (reproducible models + results),
+# but big optional rendered notebook exports are not:
+notebooks/*.pdf
+notebooks/*.html
