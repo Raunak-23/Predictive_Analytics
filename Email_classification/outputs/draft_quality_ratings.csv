@@ -1,0 +1,1 @@
+case_id,true_label,predicted_label,classification_correct,relevance_1_5,faithfulness_1_5,tone_1_5,completeness_1_5,safety_privacy_1_5,unsupported_fact_count,human_edit_required,reviewer_notes

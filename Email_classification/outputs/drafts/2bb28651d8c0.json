@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-08-01T14:07:58.517692+00:00",
+  "case_id": "2bb28651d8c0",
+  "predicted_class": "request",
+  "signal_type": "probability",
+  "signal": 0.9304495534297826,
+  "margin": 0.8692766946715338,
+  "mandatory_review": false,
+  "llm_model": "gpt-4o-mini",
+  "prompt_version": "draft_prompt_v2.0",
+  "status": "generated_fallback",
+  "reason": "OPENAI_API_KEY not set; generated compliant structured template draft.",
+  "draft": "Subject: Re: Urgent account update required\n\nDear Support Team,\n\nThank you for reaching out regarding 'Urgent account update required'. We have received your message classified under 'request' and are reviewing your request.\n\nBest regards,\n[Your Name]"
+}

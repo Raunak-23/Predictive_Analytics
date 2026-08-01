@@ -1,0 +1,2 @@
+dataset_id,rows,classes,empty_text,exact_duplicate_text,unique_texts,median_text_length,file_sha256
+business_intent,2000,4,0,790,1210,50.0,e4afbfb7d84d7b1dce5d45a60d266eed9a9c26b5d764828d7233c8fc02a0f9ad

@@ -1,0 +1,6 @@
+dataset_id,model,accuracy_mean,accuracy_sd,macro_f1_mean,macro_f1_sd,weighted_f1_mean,weighted_f1_sd
+business_intent,multinomial_nb,1.0,0.0,1.0,0.0,1.0,0.0
+business_intent,logistic_regression,1.0,0.0,1.0,0.0,1.0,0.0
+business_intent,complement_nb,1.0,0.0,1.0,0.0,1.0,0.0
+business_intent,linear_svc,1.0,0.0,1.0,0.0,1.0,0.0
+business_intent,dummy_majority,0.253125,0.0,0.10099750623441398,1.3877787807814457e-17,0.10225997506234415,0.0

@@ -1,0 +1,57 @@
+{
+  "builder_name": "json",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "spam-email-dataset",
+  "dataset_size": 10531526,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/VoltageVagabond/spam-email-dataset@2695212e03183ab3a5d7f4445a6a3fe6f0e3eb80/chat_format/train.jsonl": {
+      "num_bytes": 8811589,
+      "checksum": null
+    },
+    "hf://datasets/VoltageVagabond/spam-email-dataset@2695212e03183ab3a5d7f4445a6a3fe6f0e3eb80/chat_format/test.jsonl": {
+      "num_bytes": 2219689,
+      "checksum": null
+    }
+  },
+  "download_size": 11031278,
+  "features": {
+    "messages": {
+      "feature": {
+        "role": {
+          "dtype": "string",
+          "_type": "Value"
+        },
+        "content": {
+          "dtype": "string",
+          "_type": "Value"
+        }
+      },
+      "_type": "List"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 21562804,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 8412938,
+      "num_examples": 3200,
+      "dataset_name": "spam-email-dataset"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 2118588,
+      "num_examples": 800,
+      "dataset_name": "spam-email-dataset"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
