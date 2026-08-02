@@ -1,0 +1,21 @@
+hyperparameter,value,cv_macro_f1_mean,cv_macro_f1_sd
+MultinomialNB alpha,0.01,1.0,0.0
+MultinomialNB alpha,0.1,1.0,0.0
+MultinomialNB alpha,0.5,1.0,0.0
+MultinomialNB alpha,1.0,1.0,0.0
+MultinomialNB alpha,2.0,1.0,0.0
+ComplementNB alpha,0.01,1.0,0.0
+ComplementNB alpha,0.1,1.0,0.0
+ComplementNB alpha,0.5,1.0,0.0
+ComplementNB alpha,1.0,1.0,0.0
+ComplementNB alpha,2.0,1.0,0.0
+LogisticRegression C,0.25,1.0,0.0
+LogisticRegression C,0.5,1.0,0.0
+LogisticRegression C,1.0,1.0,0.0
+LogisticRegression C,2.0,1.0,0.0
+LogisticRegression C,4.0,1.0,0.0
+LinearSVC C,0.25,1.0,0.0
+LinearSVC C,0.5,1.0,0.0
+LinearSVC C,1.0,1.0,0.0
+LinearSVC C,2.0,1.0,0.0
+LinearSVC C,4.0,1.0,0.0

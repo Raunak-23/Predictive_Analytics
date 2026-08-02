@@ -1,0 +1,16 @@
+variant,model,accuracy_mean,macro_f1_mean,macro_f1_sd
+subject_only,dummy_majority,0.253125,0.10099750623441398,1.3877787807814457e-17
+subject_only,multinomial_nb,0.253125,0.10099750623441398,1.3877787807814457e-17
+subject_only,complement_nb,0.25375000000000003,0.10119601493777992,0.0003970174067319254
+subject_only,logistic_regression,0.25375000000000003,0.10119601493777992,0.0003970174067319254
+subject_only,linear_svc,0.253125,0.10099750623441398,1.3877787807814457e-17
+body_only,dummy_majority,0.253125,0.10099750623441398,1.3877787807814457e-17
+body_only,multinomial_nb,1.0,1.0,0.0
+body_only,complement_nb,1.0,1.0,0.0
+body_only,logistic_regression,1.0,1.0,0.0
+body_only,linear_svc,1.0,1.0,0.0
+subject_body,dummy_majority,0.253125,0.10099750623441398,1.3877787807814457e-17
+subject_body,multinomial_nb,1.0,1.0,0.0
+subject_body,complement_nb,1.0,1.0,0.0
+subject_body,logistic_regression,1.0,1.0,0.0
+subject_body,linear_svc,1.0,1.0,0.0

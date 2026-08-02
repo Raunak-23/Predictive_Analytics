@@ -1,0 +1,6 @@
+model,train_macro_f1,cv_macro_f1,gap,flag_overfit
+dummy_majority,0.10139511709018435,0.10099750623441398,0.0003976108557703778,False
+multinomial_nb,1.0,1.0,0.0,False
+logistic_regression,1.0,1.0,0.0,False
+complement_nb,1.0,1.0,0.0,False
+linear_svc,1.0,1.0,0.0,False

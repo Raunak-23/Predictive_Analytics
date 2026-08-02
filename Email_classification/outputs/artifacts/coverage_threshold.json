@@ -1,0 +1,6 @@
+{
+  "threshold": 0.0,
+  "coverage": 1.0,
+  "selective_error": 0.0,
+  "model": "multinomial_nb"
+}
