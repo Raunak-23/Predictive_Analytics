@@ -1,0 +1,5 @@
+hyperparameter,dataset_id,value,cv_macro_f1_mean,cv_macro_f1_sd
+ComplementNB alpha,spamassassin,0.01,0.9860362357877032,0.002210910051764774
+LinearSVC C,spamassassin,4.0,0.9877223914240754,0.003521680832594278
+LogisticRegression C,spamassassin,4.0,0.9858186445078803,0.002076861649936049
+MultinomialNB alpha,spamassassin,0.01,0.9847964788061129,0.001777084227974705

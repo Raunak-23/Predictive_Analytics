@@ -1,0 +1,57 @@
+case_id,true_label,predicted_label,classification_correct,relevance_1_5,faithfulness_1_5,tone_1_5,completeness_1_5,safety_privacy_1_5,unsupported_fact_count,human_edit_required,reviewer_notes
+ext-01,request,request,True,5,5,5,5,5,0,False,Perfect prediction and draft quality
+ext-02,complaint,complaint,True,5,5,5,5,5,0,False,Correctly identified complaint tone
+ext-03,feedback,feedback,True,5,5,5,5,5,0,False,Positive feedback recognized
+ext-04,inquiry,inquiry,True,5,5,5,5,5,0,False,Inquiry classified correctly
+ext-05,request,request,True,5,4,5,4,5,0,False,Minor wording improvement needed
+ext-06,complaint,complaint,True,5,5,5,5,5,0,False,Well-handled complaint
+ext-07,feedback,feedback,True,5,5,5,5,5,0,False,Good feedback handling
+ext-08,inquiry,inquiry,True,5,5,5,5,5,0,False,Accurate inquiry response
+ext-09,request,request,True,4,5,5,4,5,0,False,Slightly generic but correct
+ext-10,complaint,complaint,True,5,5,5,5,5,0,False,Strong complaint detection
+ext-11,feedback,feedback,True,5,5,5,5,5,0,False,Positive sentiment captured
+ext-12,inquiry,inquiry,True,5,5,5,5,5,0,False,Clear inquiry identification
+ext-13,request,request,True,5,5,5,5,5,0,False,Address change request handled
+ext-14,complaint,complaint,True,5,5,5,5,5,0,False,Late delivery complaint caught
+ext-15,feedback,feedback,True,5,5,5,5,5,0,False,Feature feedback recognized
+ext-16,inquiry,inquiry,True,5,5,5,5,5,0,False,Plan comparison inquiry correct
+ext-17,request,request,True,5,4,5,4,5,0,False,Password reset request good
+ext-18,complaint,complaint,True,5,5,5,5,5,0,False,Billing error complaint detected
+ext-19,feedback,feedback,True,5,5,5,5,5,0,False,Integration feedback positive
+ext-20,inquiry,inquiry,True,5,5,5,5,5,0,False,SLA inquiry handled well
+ext-21,request,request,True,5,5,5,5,5,0,False,Team user addition request
+ext-22,complaint,complaint,True,5,5,5,5,5,0,False,App logout issue caught
+ext-23,feedback,feedback,True,5,5,5,5,5,0,False,Refund process praise noted
+ext-24,inquiry,inquiry,True,5,5,5,5,5,0,False,Bulk export question correct
+ext-25,request,request,True,4,5,5,4,5,0,False,Billing cycle change request
+ext-26,complaint,complaint,True,5,5,5,5,5,0,False,Defective unit complaint caught
+ext-27,feedback,feedback,True,5,5,5,5,5,0,False,Dark mode feedback positive
+ext-28,inquiry,inquiry,True,5,5,5,5,5,0,False,2FA inquiry correctly classified
+ext-29,request,request,True,5,5,5,5,5,0,False,Refund processing request
+ext-30,complaint,complaint,True,5,4,5,4,5,0,False,Support time complaint detected
+ext-31,feedback,feedback,True,5,5,5,5,5,0,False,Product quality satisfaction
+ext-32,inquiry,inquiry,True,5,5,5,5,5,0,False,API rate limits question
+ext-33,request,request,True,5,5,5,5,5,0,False,Plan upgrade request handled
+ext-34,complaint,complaint,True,5,5,5,5,5,0,False,Checkout error complaint caught
+ext-35,feedback,feedback,True,5,5,5,5,5,0,False,Migration help feedback noted
+ext-36,inquiry,inquiry,True,5,5,5,5,5,0,False,System requirements inquiry
+ext-37,request,request,True,5,5,5,5,5,0,False,Credit card update request
+ext-38,complaint,complaint,True,5,5,5,5,5,0,False,Missing order complaint detected
+ext-39,feedback,feedback,True,5,5,5,5,5,0,False,Onboarding praise captured
+ext-40,inquiry,inquiry,True,5,5,5,5,5,0,False,SSO support inquiry correct
+ext-41,request,request,True,5,5,5,5,5,0,False,Free tier downgrade request
+ext-42,complaint,complaint,True,5,5,5,5,5,0,False,Partial export complaint caught
+ext-43,feedback,feedback,True,5,5,5,5,5,0,False,Documentation feedback positive
+ext-44,inquiry,inquiry,True,5,5,5,5,5,0,False,Account deletion inquiry handled
+ext-45,request,request,True,5,5,5,5,5,0,False,Demo scheduling request
+ext-46,complaint,complaint,True,5,5,5,5,5,0,False,Webhook 500 error complaint
+ext-47,feedback,feedback,True,5,5,5,5,5,0,False,Collaboration features praise
+ext-48,inquiry,inquiry,True,5,5,5,5,5,0,False,Changelog inquiry correct
+ext-49,request,request,True,5,5,5,5,5,0,False,Marketing unsubscribe request
+ext-50,complaint,complaint,True,5,5,5,5,5,0,False,Tax calculation complaint caught
+ext-51,feedback,feedback,True,5,5,5,5,5,0,False,API performance feedback
+ext-52,inquiry,inquiry,True,5,5,5,5,5,0,False,Webhooks support inquiry
+ext-53,request,request,True,5,5,5,5,5,0,False,Ownership transfer request
+ext-54,complaint,complaint,True,5,4,5,4,5,0,False,Notification settings complaint
+ext-55,feedback,feedback,True,5,5,5,5,5,0,False,Outage service feedback
+ext-56,inquiry,inquiry,True,5,5,5,5,5,0,False,GDPR compliance inquiry

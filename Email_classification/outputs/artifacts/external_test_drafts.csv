@@ -1,0 +1,95 @@
+case_id,email,true_intent,predicted_intent,correct,confidence,margin,llm_draft,llm_status,llm_reason,template_draft,template_status
+ext-01,Could you please provide the latest software update patch for our enterprise license?,request,inquiry,False,0.7879248728904381,0.5913086530946249,"Subject: Re: Regarding your inquiry
+Body:
+Dear Customer,
+
+Thank you for reaching out to us. 
+
+Regarding your request for the latest software update patch for your enterprise license, we will review your account status and provide the appropriate information soon. 
+
+[PLACEHOLDER: Additional details or next steps]
+
+Best regards,
+
+Support Team",generated,,"Subject: Re: Regarding your message
+
+Dear Customer,
+
+Thank you for your inquiry. [PLACEHOLDER: information requested].
+
+Best regards,
+Support Team",generated
+ext-02,I am extremely disappointed with the frequent service outages on your platform this week.,complaint,complaint,True,0.5965721728306915,0.32663642012754834,"Subject: Re: Regarding your inquiry
+Body:
+Dear Customer,
+
+Thank you for contacting us. I am sorry to hear about the inconvenience caused by the frequent service outages on our platform this week. 
+
+We take reports of this nature seriously and are looking into the matter. [PLACEHOLDER]
+
+Best regards,
+
+Support Team",generated,,"Subject: Re: Regarding your message
+
+Dear Customer,
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+Support Team",generated
+ext-03,The customer support team resolved my billing issue very quickly and professionally.,feedback,feedback,True,0.8736728652012374,0.7596241091087249,"Subject: Re: Regarding your inquiry
+Body:
+Dear Customer,
+
+Thank you for sharing your positive feedback with us. We are glad to hear that your billing issue was resolved quickly and professionally by our support team. 
+
+If you need any further assistance in the future, please do not hesitate to reach out.
+
+Best regards,
+
+Support Team",generated,,"Subject: Re: Regarding your message
+
+Dear Customer,
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+Support Team",generated
+ext-04,I would like to know the exact pricing tiers available for annual enterprise subscriptions.,inquiry,request,False,0.9745078198337537,0.957509900453426,"Subject: Re: Regarding your inquiry
+Body:
+Dear Customer,
+
+Thank you for your interest in our annual enterprise subscriptions. 
+
+To provide you with the exact pricing tiers, I will need a bit more information about your specific requirements, such as [PLACEHOLDER]. 
+
+Please let me know a convenient time to discuss this further, or I can have our sales team reach out to you with the relevant details.
+
+Best regards,
+
+Support Team",generated,,"Subject: Re: Regarding your message
+
+Dear Customer,
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+Support Team",generated
+ext-05,Please cancel my subscription effective immediately and confirm via email.,request,request,True,0.9145291994481515,0.8670260834654782,"Subject: Re: Regarding your inquiry
+Body:
+Dear Customer,
+
+We have received your request to cancel your subscription. We will process this request and [PLACEHOLDER: action details/confirmation timeframe]. 
+
+Please let us know if you have any questions.
+
+Best regards,
+
+Support Team",generated,,"Subject: Re: Regarding your message
+
+Dear Customer,
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+Support Team",generated

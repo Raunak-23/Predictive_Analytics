@@ -1,0 +1,57 @@
+email,intent,predicted_intent,correct
+Could you please provide the latest software update patch for our enterprise license?,request,inquiry,False
+I am extremely disappointed with the frequent service outages on your platform this week.,complaint,complaint,True
+The customer support team resolved my billing issue very quickly and professionally.,feedback,feedback,True
+I would like to know the exact pricing tiers available for annual enterprise subscriptions.,inquiry,request,False
+Please cancel my subscription effective immediately and confirm via email.,request,request,True
+Your mobile application crashes every time I try to upload a document.,complaint,feedback,False
+Thank you for the wonderful onboarding session yesterday.,feedback,feedback,True
+Could you clarify the data retention policy for deleted user accounts?,inquiry,inquiry,True
+Kindly send me the receipt for my last payment transaction.,request,request,True
+The product arrived damaged and missing several components as described.,complaint,complaint,True
+I really appreciate the prompt response regarding my technical query.,feedback,complaint,False
+What are the operating hours for your technical support helpdesk?,inquiry,inquiry,True
+Please update my billing address to the new office location.,request,request,True
+The delivery was three days late with no notification.,complaint,complaint,True
+Great experience using the new dashboard features.,feedback,feedback,True
+Can you explain the difference between the Pro and Enterprise plans?,inquiry,request,False
+I need to reset my account password immediately.,request,request,True
+Your billing system charged me twice for the same invoice.,complaint,complaint,True
+Excellent documentation made integration straightforward.,feedback,feedback,True
+What is the SLA for API uptime guarantees?,inquiry,complaint,False
+Please add a new user to our team account.,request,inquiry,False
+The mobile app keeps logging me out randomly.,complaint,feedback,False
+Thanks for the quick refund process.,feedback,feedback,True
+Is there a bulk export option for transaction history?,inquiry,inquiry,True
+Kindly change my subscription from monthly to annual billing.,request,request,True
+I received a defective unit in my recent order.,complaint,complaint,True
+The new dark mode feature is fantastic!,feedback,feedback,True
+How do I enable two-factor authentication?,inquiry,inquiry,True
+Please process a refund for the cancelled service.,request,request,True
+Support response time has been unacceptable lately.,complaint,complaint,True
+I'm very satisfied with the product quality.,feedback,feedback,True
+Could you provide the API rate limits documentation?,inquiry,inquiry,True
+Please upgrade my plan to the next tier.,request,request,True
+The checkout page throws an error when I submit.,complaint,complaint,True
+Your team was very helpful during migration.,feedback,feedback,True
+What are the system requirements for the desktop app?,inquiry,inquiry,True
+Need to update the credit card on file for auto-renewal.,request,request,True
+"Order #12345 never arrived, tracking shows no updates.",complaint,complaint,True
+Thank you for the seamless onboarding process.,feedback,feedback,True
+Is single sign-on (SSO) supported for enterprise?,inquiry,inquiry,True
+Please downgrade my account to the free tier.,request,request,True
+The export feature only downloads partial data.,complaint,complaint,True
+Documentation examples are clear and work perfectly.,feedback,inquiry,False
+How can I delete my account and all associated data?,inquiry,request,False
+Request to schedule a demo for our team next week.,request,request,True
+Getting 500 errors when calling the webhook endpoint.,complaint,complaint,True
+Love the new collaboration features!,feedback,feedback,True
+Where can I find the changelog for v2.0?,inquiry,inquiry,True
+Please unsubscribe me from all marketing emails.,request,request,True
+Invoice #INV-789 has incorrect tax calculation.,complaint,request,False
+The API response time has improved significantly.,feedback,complaint,False
+Does the platform support webhooks for custom events?,inquiry,inquiry,True
+Need to transfer ownership of the organization account.,request,request,True
+Notification settings don't save properly.,complaint,inquiry,False
+Outstanding customer service during the outage.,feedback,feedback,True
+Can you confirm GDPR compliance for EU data?,inquiry,request,False

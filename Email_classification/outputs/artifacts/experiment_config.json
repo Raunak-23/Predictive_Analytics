@@ -1,0 +1,22 @@
+{
+  "random_state": 42,
+  "cv_splits": 5,
+  "test_size": 0.2,
+  "best_model": "multinomial_nb",
+  "best_cv_macro_f1": 1.0,
+  "test_accuracy": 1.0,
+  "test_macro_f1": 1.0,
+  "test_weighted_f1": 1.0,
+  "external_accuracy": 0.75,
+  "external_macro_f1": 0.7491039426523296,
+  "external_weighted_f1": 0.7491039426523297,
+  "classes": [
+    "complaint",
+    "feedback",
+    "inquiry",
+    "request"
+  ],
+  "timestamp_utc": "2026-08-03T13:27:52.097246+00:00",
+  "d1_dataset_path": "..\\data\\business_email_intent.csv",
+  "external_dataset_path": "..\\data\\external_test_emails.csv"
+}

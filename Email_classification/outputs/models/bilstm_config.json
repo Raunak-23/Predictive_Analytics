@@ -1,0 +1,14 @@
+{
+  "max_vocab": 10000,
+  "max_len": 150,
+  "embedding_dim": 32,
+  "lstm_units": 32,
+  "classes": [
+    "complaint",
+    "feedback",
+    "inquiry",
+    "request"
+  ],
+  "seed": 42,
+  "parameters": 30500
+}

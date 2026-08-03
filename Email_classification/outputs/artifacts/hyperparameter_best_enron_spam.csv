@@ -1,0 +1,5 @@
+hyperparameter,dataset_id,value,cv_macro_f1_mean,cv_macro_f1_sd
+ComplementNB alpha,enron_spam,0.01,0.9896544781858945,0.0005379669983104355
+LinearSVC C,enron_spam,2.0,0.9932860771652796,0.0008834532678237293
+LogisticRegression C,enron_spam,4.0,0.9909945191261131,0.0011627332706146533
+MultinomialNB alpha,enron_spam,0.01,0.9897333015710741,0.0004985993071590564

@@ -1,0 +1,8 @@
+failure_category,count,example_pattern,likely_cause,mitigation
+urgent false negative,0,N/A (no urgent_action in D1),class not in data,use 6-class D1
+legitimate predicted spam,N/A,,,
+wrong-intent draft,0,,,
+unsupported facts in draft,0,[PLACEHOLDER in template],LLM hallucination,use placeholders
+prompt injection followed,0,,,delimit email as untrusted
+PII exposed,0,,,redact before API
+API error / empty draft,0,gemini error,network / quota,retry + fallback

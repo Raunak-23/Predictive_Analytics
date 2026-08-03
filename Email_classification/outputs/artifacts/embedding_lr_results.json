@@ -1,0 +1,8 @@
+{
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "test_accuracy": 0.99,
+  "test_macro_f1": 0.9901923076923077,
+  "test_weighted_f1": 0.9899961538461538,
+  "encode_time_sec": 12.120877200000905,
+  "fit_time_sec": 0.11294330000055197
+}

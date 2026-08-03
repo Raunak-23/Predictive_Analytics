@@ -1,0 +1,3 @@
+dataset_id,rows,classes,empty_text,exact_duplicate_text,unique_texts,median_text_length,file_sha256
+enron_spam,31665,2,0,2854,28811,728.0,1280b7b503111f2e723c19e9ae7df645c2c38a8db304fce872856e837bd2c18e
+spamassassin,6046,2,0,129,5917,1073.0,264f2b25a1dbd32c178de93ee7c9ba9a978bf0d067e007ab3f29dc946bb89daa
