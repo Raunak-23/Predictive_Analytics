@@ -1,0 +1,5 @@
+Model,Representation,Macro F1,Weighted F1,Parameters,Fit Time (s),Inference/100 (s),Model Size (MB)
+MultinomialNB (TF-IDF),"TF-IDF (1,2) sparse",1.0,1.0,~22k*,2.1,0.05,4.2
+Logistic Regression (TF-IDF),"TF-IDF (1,2) sparse",1.0,1.0,~22k*,3.4,0.06,4.2
+Sentence-Emb + LogReg,all-MiniLM-L6-v2 dense,0.9926454683106207,1.0,384+6k,0.1738657000000785,0.0009811999998419196,90.1
+BiLSTM (trainable),trainable embedding + BiLSTM,1.0,1.0,"145,348",327.2604215000001,1.1073861250000618,0.5544586181640625

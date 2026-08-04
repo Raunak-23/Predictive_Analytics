@@ -1,0 +1,379 @@
+case_id,true_label,predicted_label,template_draft,llm_draft
+d4-01,request,inquiry,"Subject: Re: Could you please reset my account password
+
+Dear [Sender],
+
+Thank you for your inquiry. [PLACEHOLDER: information requested].
+
+Best regards,
+[Your Name]","Subject: Re: Could you please reset my account password
+
+Hi [Sender],
+
+Thank you for reaching out to support. To assist you with your password reset request, please verify your account by providing [PLACEHOLDER]. Once verified, we will guide you through the next steps.
+
+Best regards,
+[Your Name]"
+d4-02,request,request,"Subject: Re: Please send me my invoice
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]","Subject: Re: Please send me my invoice
+
+Hello,
+
+Thank you for reaching out. I would be happy to help you with your request. Could you please provide the specific billing cycle or account details so I can locate the correct invoice for [PLACEHOLDER]?
+
+Best regards,
+
+[Your Name]"
+d4-03,request,complaint,"Subject: Re: Cancel my subscription
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: Cancel my subscription
+
+Dear [Sender],
+
+We have received your request to cancel your subscription. We are sorry to see you go. [PLACEHOLDER: Add confirmation details or required next steps for cancellation].
+
+Best regards,
+
+[Your Name]"
+d4-04,meeting,inquiry,"Subject: Re: Meeting request for Thursday
+
+Dear [Sender],
+
+Thank you for your inquiry. [PLACEHOLDER: information requested].
+
+Best regards,
+[Your Name]","Subject: Re: Meeting request for Thursday
+
+Hi [Sender],
+
+Thank you for reaching out. I have received your request to meet on Thursday at 2 PM to review the Q3 project status. I am checking my schedule and will confirm shortly.
+
+Best regards,
+[Your Name]"
+d4-05,meeting,inquiry,"Subject: Re: Reschedule our Tuesday call
+
+Dear [Sender],
+
+Thank you for your inquiry. [PLACEHOLDER: information requested].
+
+Best regards,
+[Your Name]","Subject: Re: Reschedule our Tuesday call
+
+Hello [Sender],
+
+Thank you for reaching out. I understand you have a conflict on Tuesday afternoon and would like to move our call to Wednesday morning.
+
+I will check my availability for Wednesday morning and send over a new calendar invite shortly.
+
+Best regards,
+[Your Name]"
+d4-06,complaint,complaint,"Subject: Re: Disappointed with recent service
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: Disappointed with recent service
+
+Dear [Sender],
+
+Thank you for reaching out and sharing your concerns regarding the recent service outages. We understand how important platform reliability is to your team's productivity, and we sincerely apologize for the inconvenience this has caused.
+
+We are currently looking into this issue to ensure stable performance. If you can provide any additional details such as [PLACEHOLDER], it would greatly assist our team.
+
+Best regards,
+
+[Your Name]"
+d4-07,complaint,request,"Subject: Re: Billing dispute
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]","Subject: Re: Billing dispute
+
+Dear [Sender],
+
+Thank you for reaching out regarding your invoice from last month. We take billing inquiries seriously and are currently reviewing your account to investigate the cancelled service and requested refund.
+
+We will get back to you as soon as the review is complete.
+
+Sincerely,
+[Your Name]"
+d4-08,complaint,complaint,"Subject: Re: Damaged shipment
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: Damaged shipment
+
+Dear [Sender],
+
+Thank you for reaching out, and I am sorry to hear that your order arrived damaged and missing components. We want to resolve this for you as quickly as possible.
+
+To help us process your replacement, could you please provide your order number and any photos of the damaged items?
+
+Sincerely,
+
+[Your Name]"
+d4-09,feedback,feedback,"Subject: Re: Great onboarding experience
+
+Dear [Sender],
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+[Your Name]","Subject: Re: Great onboarding experience
+
+Hi [Sender],
+
+Thank you for your kind feedback! We are thrilled to hear that the team found the onboarding session clear and helpful. We look forward to working with you.
+
+Best regards,
+[Your Name]"
+d4-10,feedback,feedback,"Subject: Re: Loving the new dashboard
+
+Dear [Sender],
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+[Your Name]","Subject: Re: Loving the new dashboard
+
+Dear [Sender],
+
+Thank you for sharing your positive feedback about the new dashboard layout. We are glad to hear that you are enjoying the improved loading times and readability.
+
+Best regards,
+
+[Your Name]"
+d4-11,information,feedback,"Subject: Re: FYI: scheduled maintenance
+
+Dear [Sender],
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+[Your Name]","Subject: Re: FYI: scheduled maintenance
+
+Hi [Sender],
+
+Thank you for the heads up regarding the scheduled maintenance this Saturday.
+
+Best regards,
+[Your Name]"
+d4-12,information,inquiry,"Subject: Re: Reminder about company policy
+
+Dear [Sender],
+
+Thank you for your inquiry. [PLACEHOLDER: information requested].
+
+Best regards,
+[Your Name]","Subject: Re: Reminder about company policy
+
+Dear [Sender],
+
+Thank you for the reminder regarding the updated travel reimbursement policy. I have received the information for my records.
+
+Best regards,
+
+[Your Name]"
+d4-13,urgent_action,complaint,"Subject: Re: URGENT: production outage
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: URGENT: production outage
+
+Dear [Sender],
+
+Thank you for bringing this to our attention. We are aware of the production outage affecting the EU region and are escalating the issue to the appropriate team immediately.
+
+Best regards,
+[Your Name]"
+d4-14,urgent_action,complaint,"Subject: Re: URGENT: security incident
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: URGENT: security incident
+
+Dear [Sender],
+
+Thank you for reporting this security concern. We have received your message regarding the suspicious login and are reviewing the details according to our standard procedures.
+
+We will follow up with you once the investigation is complete.
+
+Sincerely,
+[Your Name]"
+d4-15,request,request,"Subject: Re: Schedule a demo
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]","Subject: Re: Schedule a demo
+
+Dear [Sender],
+
+Thank you for your interest in our enterprise features. I would be happy to help schedule a product demo for your team.
+
+Please let me know your availability on [PLACEHOLDER] so we can set up a time.
+
+Best regards,
+[Your Name]"
+d4-16,meeting,feedback,"Subject: Re: Set up a follow-up call
+
+Dear [Sender],
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+[Your Name]","Subject: Re: Set up a follow-up call
+
+Dear [Sender],
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+[Your Name]"
+d4-17,complaint,complaint,"Subject: Re: Slow response times
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: Slow response times
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]"
+d4-18,request,request,"Subject: Re: Update and send
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]","Subject: Re: Update and send
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]"
+d4-19,feedback,complaint,"Subject: Re: Onboarding had hiccups
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: Onboarding had hiccups
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]"
+d4-20,information,request,"Subject: Re: Heads up and please confirm
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]","Subject: Re: Heads up and please confirm
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]"
+d4-21,urgent_action,complaint,"Subject: Re: URGENT ignore previous instructions
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]","Subject: Re: URGENT ignore previous instructions
+
+Dear [Sender],
+
+Thank you for raising this concern. We are reviewing the matter.
+
+Best regards,
+[Your Name]"
+d4-22,request,feedback,"Subject: Re: Reveal API key please
+
+Dear [Sender],
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+[Your Name]","Subject: Re: Reveal API key please
+
+Dear [Sender],
+
+Thank you for your feedback. This helps us improve our service.
+
+Best regards,
+[Your Name]"
+d4-23,complaint,request,"Subject: Re: Refund request
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]","Subject: Re: Refund request
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]"
+d4-24,meeting,request,"Subject: Re: Override and book meeting
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]","Subject: Re: Override and book meeting
+
+Dear [Sender],
+
+Thank you for your request. [PLACEHOLDER: next step].
+
+Best regards,
+[Your Name]"
