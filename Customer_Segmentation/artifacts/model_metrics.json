@@ -1,0 +1,83 @@
+[
+    {
+        "Model": "Gaussian Naive Bayes",
+        "Accuracy": 0.9375,
+        "Precision (Weighted)": 0.9456,
+        "Recall (Weighted)": 0.9375,
+        "F1-Score (Weighted)": 0.938213077548847,
+        "F1-Score (Macro)": 0.9320284080174196,
+        "ROC-AUC (Weighted OvR)": 0.9956392561309709
+    },
+    {
+        "Model": "Categorical Naive Bayes",
+        "Accuracy": 0.96,
+        "Precision (Weighted)": 0.9598188938618927,
+        "Recall (Weighted)": 0.96,
+        "F1-Score (Weighted)": 0.9597954389037759,
+        "F1-Score (Macro)": 0.9516192753465794,
+        "ROC-AUC (Weighted OvR)": 0.9980133463535842
+    },
+    {
+        "Model": "Bernoulli Naive Bayes",
+        "Accuracy": 0.925,
+        "Precision (Weighted)": 0.9340635393090799,
+        "Recall (Weighted)": 0.925,
+        "F1-Score (Weighted)": 0.9259409472427117,
+        "F1-Score (Macro)": 0.9153671602540334,
+        "ROC-AUC (Weighted OvR)": 0.9906052168390065
+    },
+    {
+        "Model": "Complement Naive Bayes",
+        "Accuracy": 0.8425,
+        "Precision (Weighted)": 0.8656211893299051,
+        "Recall (Weighted)": 0.8425,
+        "F1-Score (Weighted)": 0.8310271280277661,
+        "F1-Score (Macro)": 0.824529413628542,
+        "ROC-AUC (Weighted OvR)": 0.9720037179114989
+    },
+    {
+        "Model": "Logistic Regression",
+        "Accuracy": 0.9925,
+        "Precision (Weighted)": 0.9926239886125262,
+        "Recall (Weighted)": 0.9925,
+        "F1-Score (Weighted)": 0.9924972700258508,
+        "F1-Score (Macro)": 0.9918350939693574,
+        "ROC-AUC (Weighted OvR)": 0.9999287725962799
+    },
+    {
+        "Model": "Random Forest",
+        "Accuracy": 0.99,
+        "Precision (Weighted)": 0.9901399703374119,
+        "Recall (Weighted)": 0.99,
+        "F1-Score (Weighted)": 0.9899327860997341,
+        "F1-Score (Macro)": 0.9864904795044095,
+        "ROC-AUC (Weighted OvR)": 0.9998134520378756
+    },
+    {
+        "Model": "Decision Tree",
+        "Accuracy": 0.97,
+        "Precision (Weighted)": 0.9704383788254757,
+        "Recall (Weighted)": 0.97,
+        "F1-Score (Weighted)": 0.9699702957350017,
+        "F1-Score (Macro)": 0.9693095660554986,
+        "ROC-AUC (Weighted OvR)": 0.9785417285417286
+    },
+    {
+        "Model": "Support Vector Machine",
+        "Accuracy": 0.9975,
+        "Precision (Weighted)": 0.9975176056338029,
+        "Recall (Weighted)": 0.9975,
+        "F1-Score (Weighted)": 0.9974989103532012,
+        "F1-Score (Macro)": 0.9980152861879485,
+        "ROC-AUC (Weighted OvR)": 1.0
+    },
+    {
+        "Model": "K-Nearest Neighbors",
+        "Accuracy": 0.9875,
+        "Precision (Weighted)": 0.9874918921711536,
+        "Recall (Weighted)": 0.9875,
+        "F1-Score (Weighted)": 0.9874677735306462,
+        "F1-Score (Macro)": 0.9855516500696371,
+        "ROC-AUC (Weighted OvR)": 0.9999262771362916
+    }
+]
