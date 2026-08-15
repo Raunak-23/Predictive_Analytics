@@ -1,0 +1,9 @@
+{
+  "nan_counts": {
+    "job": 288,
+    "education": 1857,
+    "contact": 13020,
+    "poutcome": 36959
+  },
+  "unknown_counts": {}
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Bank Marketing Dataset (UCI)",
+  "source_url": "https://archive.ics.uci.edu/dataset/222/bank+marketing",
+  "license": "Unknown (UCI public repository)",
+  "description": "The data is related to direct marketing campaigns of a Portuguese banking institution. The classification goal is to predict if the client will subscribe to a term deposit (target 'y').",
+  "record_count": 45211,
+  "feature_count": 16,
+  "target_column": "y",
+  "target_classes": [
+    "no",
+    "yes"
+  ],
+  "id_column": null,
+  "id_surrogate": "row_index",
+  "columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "duration",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome",
+    "y"
+  ],
+  "checksum": "9d51d79233ad8b098954ad4b22586feae378f0041552adeaeffa3aba7db77faf"
+}

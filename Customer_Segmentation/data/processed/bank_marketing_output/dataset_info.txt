@@ -1,0 +1,62 @@
+BANK MARKETING DATASET
+======================
+
+Source dataset: bank-full.csv
+Total records: 45211
+Total features: 16
+Target: y
+
+Target distribution:
+y
+no     39922
+yes     5289
+Name: count, dtype: int64
+
+Target distribution (%):
+y
+no     88.3
+yes    11.7
+Name: proportion, dtype: float64
+
+Feature data types:
+age           int64
+job          object
+marital      object
+education    object
+default      object
+balance       int64
+housing      object
+loan         object
+contact      object
+day           int64
+month        object
+duration      int64
+campaign      int64
+pdays         int64
+previous      int64
+poutcome     object
+y            object
+dtype: object
+
+Missing values:
+age              0
+job            288
+marital          0
+education     1857
+default          0
+balance          0
+housing          0
+loan             0
+contact      13020
+day              0
+month            0
+duration         0
+campaign         0
+pdays            0
+previous         0
+poutcome     36959
+y                0
+dtype: int64
+
+Training samples: 36168
+Testing samples: 9043

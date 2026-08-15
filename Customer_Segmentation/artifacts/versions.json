@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-08-20T15:08:59.262728",
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.22621-SP0",
+  "libraries": {
+    "pandas": "2.3.2",
+    "numpy": "2.2.6",
+    "sklearn": "1.7.2",
+    "seaborn": "0.13.2",
+    "matplotlib": "3.10.6",
+    "joblib": "1.5.2"
+  }
+}
