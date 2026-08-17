@@ -1,0 +1,28 @@
+{
+  "numeric": [
+    "age",
+    "balance",
+    "day",
+    "campaign",
+    "pdays",
+    "previous"
+  ],
+  "categorical": [
+    "job",
+    "marital",
+    "education",
+    "default",
+    "housing",
+    "loan",
+    "contact",
+    "month",
+    "poutcome"
+  ],
+  "ordinal": [],
+  "excluded": [
+    "y",
+    "row_index",
+    "duration"
+  ],
+  "target": "y"
+}
