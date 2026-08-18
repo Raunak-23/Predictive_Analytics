@@ -1,0 +1,12 @@
+[
+  {
+    "true": 0,
+    "predicted": 1,
+    "count": 421
+  },
+  {
+    "true": 1,
+    "predicted": 0,
+    "count": 678
+  }
+]

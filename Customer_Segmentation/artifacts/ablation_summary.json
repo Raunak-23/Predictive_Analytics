@@ -1,0 +1,54 @@
+{
+  "selected_model": "CategoricalNB",
+  "feature_groups": {
+    "demographic_only": {
+      "columns": [
+        "age",
+        "job",
+        "marital",
+        "education",
+        "default",
+        "balance",
+        "housing",
+        "loan"
+      ],
+      "mean_macro_f1": 0.5251921726448878,
+      "std_macro_f1": 0.002564746986247366
+    },
+    "campaign_only": {
+      "columns": [
+        "contact",
+        "day",
+        "month",
+        "campaign",
+        "pdays",
+        "previous",
+        "poutcome"
+      ],
+      "mean_macro_f1": 0.6309148759155008,
+      "std_macro_f1": 0.007929677617907154
+    },
+    "combined": {
+      "columns": [
+        "age",
+        "job",
+        "marital",
+        "education",
+        "default",
+        "balance",
+        "housing",
+        "loan",
+        "contact",
+        "day",
+        "month",
+        "campaign",
+        "pdays",
+        "previous",
+        "poutcome"
+      ],
+      "mean_macro_f1": 0.6628688412996941,
+      "std_macro_f1": 0.004153139255821823
+    }
+  },
+  "timestamp": "2026-08-20T15:10:45.442675"
+}

@@ -1,0 +1,6 @@
+True_Segment,Predicted_Segment,Count,Consequence,Business_Impact
+B,C,160,Segment B → C misclassification,May affect targeted communication and resource allocation
+B,A,94,Budget-conscious customer misclassified as high-value,"May receive inappropriate premium offers, wasting resources"
+A,C,87,Premium customer misclassified as general segment,Missed opportunity for targeted premium offerings
+A,D,83,Segment A → D misclassification,May affect targeted communication and resource allocation
+D,A,81,At-risk customer misclassified as high-value,Missed retention opportunity
