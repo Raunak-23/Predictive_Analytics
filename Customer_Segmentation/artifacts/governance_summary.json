@@ -1,0 +1,54 @@
+{
+  "dataset_card": {
+    "dataset_name": "JanataHack Customer Segmentation",
+    "source": "Analytics Vidhya / Kaggle",
+    "verified_source_urls": [
+      "https://www.analyticsvidhya.com/datahack/contest/janatahack-customer-segmentation",
+      "https://www.kaggle.com/datasets/vetrirah/customer"
+    ],
+    "licence": "Available for educational and research use (Kaggle/AV datasets)",
+    "record_count": 10695,
+    "feature_count": 11,
+    "class_labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "class_count": 4,
+    "target_column": "Segmentation",
+    "id_column": "ID",
+    "privacy_statement": "Dataset contains anonymized customer demographic and behavioral attributes. No direct personal identifiers (name, email, phone, address) are present.",
+    "intended_use": "Academic research and educational purposes for customer segmentation prediction",
+    "train_checksum": "4245166ea666055eaeb151aecf2d16c346cdb230749eb064949684c965bf7355",
+    "test_checksum": "8dad4b0d365a8f8c73d2a1e28a91af5fd33adc036ad4e979cf61a51413d3d9ad",
+    "access_date": "2026-08-20T12:52:26.758608"
+  },
+  "psychographic_variables": {
+    "Spending_Score": {
+      "type": "behaviorally_inferred",
+      "definition": "Likely derived from transaction history or survey responses",
+      "reliability": "Moderate - inferred from behavior, subject to measurement error",
+      "time_stability": "May change over time as spending patterns evolve"
+    },
+    "Var_1": {
+      "type": "unknown_external_assignment",
+      "definition": "Unclear variable - may be survey-derived or externally assigned",
+      "reliability": "Low - meaning is not documented",
+      "time_stability": "Unknown"
+    }
+  },
+  "features": [
+    "Gender",
+    "Ever_Married",
+    "Age",
+    "Graduated",
+    "Profession",
+    "Work_Experience",
+    "Spending_Score",
+    "Family_Size",
+    "Var_1"
+  ],
+  "id_column": "ID",
+  "target_column": "Segmentation"
+}

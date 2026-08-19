@@ -1,0 +1,6 @@
+{
+  "excluded_features": [
+    "duration"
+  ],
+  "reason": "duration is a post-contact artifact; excluding to prevent data leakage."
+}

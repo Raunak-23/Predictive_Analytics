@@ -1,0 +1,12 @@
+{
+  "selected_model": "CategoricalNB",
+  "criteria": "highest mean macro F1 from 5-fold CV",
+  "mean_macro_f1": 0.6628688412996941,
+  "std_macro_f1": 0.004153139255821823,
+  "second_best_model": "BernoulliNB",
+  "second_best_macro_f1": 0.6496675444633944,
+  "gap": 0.01320129683629978,
+  "gap_exceeds_std": 1.0,
+  "rationale": "Selected CategoricalNB because it achieved the highest macro F1; gap to second-best (0.0132) is greater than best model's fold variability (0.0042).",
+  "timestamp": "2026-08-20T15:10:36.140813"
+}

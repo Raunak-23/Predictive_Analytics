@@ -1,0 +1,7 @@
+{
+  "review_threshold": 0.7499999999999999,
+  "basis": "validation set analysis, chosen for high-confidence predictions",
+  "coverage_at_threshold": 0.8728157487281575,
+  "selective_error_at_threshold": 0.0902179422199696,
+  "timestamp": "2026-08-20T15:10:58.716594"
+}
