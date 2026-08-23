@@ -39,7 +39,8 @@ Customer_Segmentation/
 │   └── uci_bank_marketing.pdf                                            # Rendered PDF lab submission export for Bank Marketing
 │
 ├── src/                                                                  # Modular helper scripts
-│   └── extract_uci_data.py                                               # Extraction, cleaning & preprocessing utility for UCI dataset
+│   ├── extract_uci_data.py                                               # Extraction, cleaning & preprocessing utility for UCI dataset
+│   └── test_script.py                                                    # Universal CLI & programmatic engine for model evaluation and isolated inference
 │
 ├── data/                                                                 # Data storage layer (raw & processed)
 │   ├── raw/
@@ -289,27 +290,139 @@ jupyter nbconvert --to notebook --execute notebooks/Janata.ipynb
 jupyter nbconvert --to notebook --execute notebooks/uci_bank_marketing.ipynb
 ```
 
-### 7.4 Using the Saved Pipeline for Inference
+### 7.4 Unified Testing & Inference Engine (`src/test_script.py`)
+
+A standalone CLI engine is provided in `src/test_script.py` to dynamically load trained pipelines, report locked test evaluation metrics, and run isolated single-profile inference with posterior probability distributions and governance review triggers.
+
+#### CLI Arguments Reference
+
+| Flag | Description | Values / Defaults |
+| :--- | :--- | :--- |
+| `--dataset`, `-d` | Target dataset to evaluate/predict on | `janata` *(default)* or `bank_marketing` (or `uci`) |
+| `--model`, `-m` | Specific serialized model artifact to load | `selected_pipeline` (Janata), `fitted_CategoricalNB`, `fitted_LogisticRegression`, `pipeline_bernoulli`, `pipeline_gaussian`, `pipeline_dummy` |
+| `--mode` | Operational execution mode | `both` *(default)*, `evaluate` (metrics only), or `predict` (inference only) |
+| `--input-json` | JSON or Python dictionary string for single customer inference | e.g. `'{"Age": 45, "Gender": "Female", ...}'` |
+| `--input-file` | Path to CSV / JSON file for batch or single sample inference | e.g. `data/processed/janata/X_test.csv` |
+| `--threshold`, `-t`| Confidence threshold for automated approval vs manual review | Default: `0.75` (from calibration study) |
+| `--save-output` | File path to export full JSON results payload | e.g. `results/cli_run_output.json` |
+
+---
+
+#### Ready-to-Run Command Examples
+
+##### 1. Multiclass Customer Segmentation (`janata` — Segments A, B, C, D)
+```bash
+# Evaluate champion pipeline on test set and run benchmark inference demonstration
+python src/test_script.py --dataset janata --mode both
+
+# Evaluate metrics only on locked test set
+python src/test_script.py --dataset janata --mode evaluate
+
+# Perform isolated inference on a custom customer profile (JSON / Dict string)
+python src/test_script.py --dataset janata --mode predict --input-json "{'Age': 45, 'Gender': 'Female', 'Ever_Married': 'Yes', 'Graduated': 'Yes', 'Profession': 'Artist', 'Spending_Score': 'Average', 'Family_Size': 3, 'Var_1': 'Cat_6', 'Work_Experience': 5}"
+```
+
+##### 2. UCI Bank Marketing Response (`bank_marketing` — 'yes' vs 'no')
+```bash
+# Evaluate champion CategoricalNB pipeline on test set
+python src/test_script.py --dataset bank_marketing --model fitted_CategoricalNB --mode evaluate
+
+# Evaluate Logistic Regression benchmark model
+python src/test_script.py --dataset bank_marketing --model fitted_LogisticRegression --mode evaluate
+
+# Run isolated prospect campaign response inference
+python src/test_script.py --dataset bank_marketing --model fitted_CategoricalNB --mode predict --input-json "{'age': 35, 'job': 'technician', 'marital': 'single', 'education': 'tertiary', 'default': 'no', 'balance': 2500, 'housing': 'no', 'loan': 'no', 'contact': 'cellular', 'day': 12, 'month': 'aug', 'campaign': 1, 'pdays': -1, 'previous': 0, 'poutcome': 'nonexistent'}"
+
+# Export test metrics and inference payload to JSON
+python src/test_script.py --dataset bank_marketing --mode both --save-output results/bank_evaluation_summary.json
+```
+
+---
+
+#### Sample CLI Dashboard Outputs
+
+```text
+=================================================================
+MODEL EVALUATION REPORT: selected_pipeline (JANATA)
+=================================================================
+Total Test Samples : 1614
+Overall Accuracy   : 0.5143 (51.43%)
+Macro F1 Score     : 0.4867
+Weighted F1 Score  : 0.4967
+Macro Precision    : 0.4906
+Macro Recall       : 0.5025
+-----------------------------------------------------------------
+
+PER-CLASS CLASSIFICATION BREAKDOWN:
+Class        Precision    Recall       F1-Score     Support   
+----------------------------------------------------------
+A            0.4304       0.4239       0.4271       394       
+B            0.3861       0.2097       0.2718       372       
+C            0.5000       0.6650       0.5708       394       
+D            0.6460       0.7115       0.6771       454       
+----------------------------------------------------------
+
+CONFUSION MATRIX:
+True \ Pred            A         B         C         D
+------------------------------------------------------
+A                    167        57        87        83
+B                     94        78       160        40
+C                     46        32       262        54
+D                     81        35        15       323
+=================================================================
+
+=================================================================
+ISOLATED INFERENCE RESULT (JANATA)
+=================================================================
+Predicted Target / Segment : >>> C <<<
+Confidence Level           : 62.72% [MODERATE]
+Decision Threshold         : 75.00%
+Governance Recommendation  : Advisory check recommended: Confidence (62.7%) is below threshold (75.0%).
+-----------------------------------------------------------------
+
+POSTERIOR CLASS PROBABILITIES:
+  Class A         : 10.18% |###---------------------------|
+  Class B         : 26.93% |########----------------------|
+  Class C         : 62.72% |##################------------|
+  Class D         :  0.17% |------------------------------|
+=================================================================
+```
+
+---
+
+### 7.5 Programmatic Python API
+
+You can also import modules from `src/test_script.py` directly in Python scripts:
 
 ```python
-import joblib
-import pandas as pd
+from src.test_script import load_model_pipeline, predict_single_profile, evaluate_pipeline_on_test_set
 
-# Load champion pipeline and review threshold
-pipeline = joblib.load("models/selected_pipeline.joblib")
-threshold = 0.75
+# 1. Load champion pipeline for Janata segmentation
+pipeline = load_model_pipeline(dataset_key="janata", model_name="selected_pipeline")
 
-# Predict on new customer data
-def predict_customer(sample_df: pd.DataFrame):
-    probs = pipeline.predict_proba(sample_df)
-    preds = pipeline.predict(sample_df)
-    max_conf = probs.max(axis=1)
-    
-    results = []
-    for pred, conf in zip(preds, max_conf):
-        routing = "Automated" if conf >= threshold else "Human Review Required"
-        results.append({"Prediction": pred, "Confidence": round(conf, 4), "Action": routing})
-    return pd.DataFrame(results)
+# 2. Predict on an isolated profile dictionary
+customer_record = {
+    "Age": 45,
+    "Gender": "Female",
+    "Ever_Married": "Yes",
+    "Graduated": "Yes",
+    "Profession": "Artist",
+    "Spending_Score": "Average",
+    "Family_Size": 3,
+    "Var_1": "Cat_6",
+    "Work_Experience": 5.0,
+}
+
+result = predict_single_profile(
+    dataset_key="janata",
+    pipeline=pipeline,
+    input_data=customer_record,
+    threshold=0.75,
+)
+
+print(f"Predicted Segment : {result['predicted_label']}")
+print(f"Confidence Level  : {result['confidence']:.2%}")
+print(f"Routing Action    : {result['review_recommendation']}")
 ```
 
 ---
