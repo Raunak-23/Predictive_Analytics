@@ -3,6 +3,7 @@
 *.doc
 *.docx
 *.html
+*.pptx
 
 # Microsoft Office lock / temp files (must never be committed)
 ~$*
