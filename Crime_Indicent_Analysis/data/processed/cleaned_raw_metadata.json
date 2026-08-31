@@ -1,0 +1,15 @@
+{
+  "total_rows_written": 8623069,
+  "total_dropped_bad_dates": 0,
+  "estimated_total_rows_before_drop": 8623069,
+  "estimated_chunks_used": 17,
+  "actual_chunks_processed": 18,
+  "created_timestamp": "2026-08-31 10:59:47",
+  "source_file": "C:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\raw\\crime_extract.csv",
+  "usecols_used": [
+    "Date",
+    "District",
+    "Case Number",
+    "Primary Type"
+  ]
+}

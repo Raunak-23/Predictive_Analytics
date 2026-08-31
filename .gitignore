@@ -25,3 +25,9 @@ venv/
 env/
 env.bak/
 .env
+
+# ── Large dataset extracts & local parquet caches (never pushed to GitHub) ──
+*.parquet
+crime_extract.csv
+Crime_Indicent_Analysis/data/raw/crime_extract.csv
+Crime_Indicent_Analysis/data/processed/cleaned_raw.parquet
