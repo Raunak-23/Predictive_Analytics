@@ -1,0 +1,17 @@
+{
+  "model": "AR",
+  "lags": 3,
+  "scores": {
+    "MAE": 26.992231079672436,
+    "RMSE": 49.81082134805953
+  },
+  "coefficients": {
+    "const": 68.17596089577623,
+    "trend": -0.0350211726738809,
+    "incidents.L1": 0.47059063562714165,
+    "incidents.L2": 0.2145704123999353,
+    "incidents.L3": 0.21070017242280198
+  },
+  "improvement_over_naive_mae_pct": 49.62569627432827,
+  "improvement_over_naive_rmse_pct": 35.01446667429505
+}

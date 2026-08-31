@@ -1,0 +1,15 @@
+{
+  "selected_order": [
+    2,
+    1,
+    0
+  ],
+  "selected_trend": "n",
+  "validation_mae": 20.8969412348298,
+  "validation_rmse": 27.4140559776438,
+  "aic_train_fit": 13271.24799106019,
+  "test_mae": 46.13249631975481,
+  "test_rmse": 71.25050217881103,
+  "improvement_over_naive_mae_pct": 13.905139061110782,
+  "improvement_over_naive_rmse_pct": 7.043253684578776
+}
