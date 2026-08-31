@@ -1,0 +1,109 @@
+{
+  "stage": "Stage 13 - artifacts, manifest and Appendix C acceptance tests",
+  "config": {
+    "dataset": "Chicago Crimes - 2001 to Present",
+    "dataset_tag": "D1_chicago",
+    "raw_filename": "crime_extract.csv",
+    "date_col": "Date",
+    "location_col": "District",
+    "location_value": "008",
+    "location_value_2": "011",
+    "frequency": "W-MON",
+    "test_periods": 12,
+    "seed": 42,
+    "category_col": "Primary Type",
+    "id_col": "Case Number"
+  },
+  "seed": 42,
+  "environment": {
+    "python_version": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.22621-SP0",
+    "runtime_detection_stage0": {
+      "environment": "local",
+      "project_root": "C:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis",
+      "raw_file_resolved_path": "C:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\raw\\crime_extract.csv"
+    },
+    "device_gpu_cuda_stage0": {
+      "torch_cuda": false,
+      "gpu_name": null,
+      "cudf": false,
+      "cuml": false
+    }
+  },
+  "location_1": {
+    "location": "District 008",
+    "frequency": "W-MON",
+    "selected_ar_lags": 3,
+    "selected_arima_order": [
+      2,
+      1,
+      0
+    ],
+    "selected_arima_trend": "n",
+    "n_total_periods": 1339,
+    "n_train": 1327,
+    "n_test": 12,
+    "locked_test_mae": 46.13249631975481,
+    "locked_test_rmse": 71.25050217881103,
+    "n_figures": 15,
+    "artifacts": [
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\series_location1.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\train_location1.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\test_location1.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\baseline_scores.json",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\ar_results.json",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\arima_summary.json",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\arima_candidate_ranking.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\arima_test_predictions.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\model_comparison.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\rolling_origin_results.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\test_predictions.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\residuals_ljung_box.csv"
+    ]
+  },
+  "location_2": {
+    "location": "District 011",
+    "frequency": "W-MON",
+    "selected_ar_lags": 3,
+    "selected_arima_order": [
+      2,
+      0,
+      0
+    ],
+    "selected_arima_trend": "c",
+    "n_total_periods": 1339,
+    "n_train": 1327,
+    "n_test": 12,
+    "locked_test_mae": 59.170969176233626,
+    "locked_test_rmse": 87.8797307836832,
+    "n_figures": 9,
+    "artifacts": [
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\series_location2.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\train_location2.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\test_location2.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\location2\\baseline_scores.json",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\location2\\ar_results.json",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\location2\\arima_summary.json",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\location2\\rolling_origin_combined.csv",
+      "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\location2\\residuals_ljung_box.csv"
+    ]
+  },
+  "shared_artifacts": [
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\raw\\source_pointer.json",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\cleaned_raw.parquet",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\processed\\cleaned_raw_metadata.json",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\governance_manifest.json",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\naive_pipeline.joblib",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\ar_pipeline.joblib",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\arima_pipeline.joblib",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\results\\D1_chicago\\D1_chicago\\location_comparison.csv",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\checkpoints\\arima_order_search.jsonl",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\checkpoints\\ar_rolling_origin.jsonl",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\checkpoints\\arima_rolling_origin.jsonl",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\location2\\checkpoints\\arima_order_search.jsonl",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\location2\\checkpoints\\ar_rolling_origin.jsonl",
+    "c:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\artifacts\\D1_chicago\\location2\\checkpoints\\arima_rolling_origin.jsonl"
+  ],
+  "acceptance_tests": "Appendix C of the manual, run in Stage 13.2",
+  "created_timestamp": "2026-08-31 11:01:00"
+}

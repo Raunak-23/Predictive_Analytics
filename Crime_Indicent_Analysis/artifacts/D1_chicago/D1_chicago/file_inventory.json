@@ -1,0 +1,303 @@
+{
+  "project_root": "C:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis",
+  "n_files": 74,
+  "total_bytes": 2503666359,
+  "files": [
+    {
+      "relative_path": "artifacts\\D1_chicago\\ar_pipeline.joblib",
+      "size_bytes": 153571
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\arima_pipeline.joblib",
+      "size_bytes": 3857461
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\checkpoints\\ar_rolling_origin.jsonl",
+      "size_bytes": 17155
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\checkpoints\\arima_order_search.jsonl",
+      "size_bytes": 5346
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\checkpoints\\arima_rolling_origin.jsonl",
+      "size_bytes": 17395
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\checkpoints\\sarima_rolling_origin.jsonl",
+      "size_bytes": 17479
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\D1_chicago\\file_inventory.json",
+      "size_bytes": 8614
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\D1_chicago\\manifest.json",
+      "size_bytes": 6972
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\final_ar3_pipeline.joblib",
+      "size_bytes": 153539
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\final_arima2_1_0_pipeline.joblib",
+      "size_bytes": 3857461
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\final_naive_pipeline.joblib",
+      "size_bytes": 72
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\governance_manifest.json",
+      "size_bytes": 1338
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\ar_rolling_origin.jsonl",
+      "size_bytes": 17155
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\arima_order_search.jsonl",
+      "size_bytes": 5303
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\arima_rolling_origin.jsonl",
+      "size_bytes": 17373
+    },
+    {
+      "relative_path": "artifacts\\D1_chicago\\naive_pipeline.joblib",
+      "size_bytes": 72
+    },
+    {
+      "relative_path": "data\\processed\\cleaned_raw.parquet",
+      "size_bytes": 86159661
+    },
+    {
+      "relative_path": "data\\processed\\cleaned_raw_metadata.json",
+      "size_bytes": 463
+    },
+    {
+      "relative_path": "data\\processed\\series_location1.csv",
+      "size_bytes": 21439
+    },
+    {
+      "relative_path": "data\\processed\\series_location2.csv",
+      "size_bytes": 21438
+    },
+    {
+      "relative_path": "data\\processed\\test_location1.csv",
+      "size_bytes": 207
+    },
+    {
+      "relative_path": "data\\processed\\test_location2.csv",
+      "size_bytes": 207
+    },
+    {
+      "relative_path": "data\\processed\\train_location1.csv",
+      "size_bytes": 21248
+    },
+    {
+      "relative_path": "data\\processed\\train_location2.csv",
+      "size_bytes": 21247
+    },
+    {
+      "relative_path": "data\\raw\\crime_extract.csv",
+      "size_bytes": 2397083721
+    },
+    {
+      "relative_path": "data\\raw\\source_pointer.json",
+      "size_bytes": 254
+    },
+    {
+      "relative_path": "notebooks\\chicago_crimes.html",
+      "size_bytes": 3074604
+    },
+    {
+      "relative_path": "notebooks\\chicago_crimes.ipynb",
+      "size_bytes": 2409095
+    },
+    {
+      "relative_path": "notebooks\\chicago_crimes.pdf",
+      "size_bytes": 5069417
+    },
+    {
+      "relative_path": "README.md",
+      "size_bytes": 0
+    },
+    {
+      "relative_path": "results\\D1_chicago\\ar_results.json",
+      "size_bytes": 451
+    },
+    {
+      "relative_path": "results\\D1_chicago\\arima_candidate_ranking.csv",
+      "size_bytes": 2320
+    },
+    {
+      "relative_path": "results\\D1_chicago\\arima_summary.json",
+      "size_bytes": 382
+    },
+    {
+      "relative_path": "results\\D1_chicago\\arima_test_predictions.csv",
+      "size_bytes": 439
+    },
+    {
+      "relative_path": "results\\D1_chicago\\baseline_scores.json",
+      "size_bytes": 86
+    },
+    {
+      "relative_path": "results\\D1_chicago\\D1_chicago\\location_comparison.csv",
+      "size_bytes": 161
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_acf_pacf.png",
+      "size_bytes": 46027
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_acf_pacf_diff.png",
+      "size_bytes": 40801
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_actual_vs_ar.png",
+      "size_bytes": 42963
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_actual_vs_arima.png",
+      "size_bytes": 41411
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_actual_vs_naive.png",
+      "size_bytes": 39190
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_final_forecast_comparison.png",
+      "size_bytes": 60744
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_raw_location_counts.png",
+      "size_bytes": 29595
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_raw_volume_over_time.png",
+      "size_bytes": 72703
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_residuals_acf.png",
+      "size_bytes": 23614
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_residuals_over_time.png",
+      "size_bytes": 79282
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_rolling_origin_all_models.png",
+      "size_bytes": 157726
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_rolling_origin_mae.png",
+      "size_bytes": 109206
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_rolling_stats.png",
+      "size_bytes": 154617
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_series_location1.png",
+      "size_bytes": 68171
+    },
+    {
+      "relative_path": "results\\D1_chicago\\fig_train_test_split.png",
+      "size_bytes": 81940
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\ar_results.json",
+      "size_bytes": 452
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\arima_summary.json",
+      "size_bytes": 388
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\baseline_scores.json",
+      "size_bytes": 86
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_acf_pacf.png",
+      "size_bytes": 48442
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_acf_pacf_diff.png",
+      "size_bytes": 43754
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_actual_vs_ar.png",
+      "size_bytes": 42439
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_actual_vs_arima.png",
+      "size_bytes": 42157
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_actual_vs_naive.png",
+      "size_bytes": 39909
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_residuals_acf.png",
+      "size_bytes": 25389
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_residuals_over_time.png",
+      "size_bytes": 79681
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_rolling_stats.png",
+      "size_bytes": 141585
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\fig_train_test_split.png",
+      "size_bytes": 73342
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\residuals_ljung_box.csv",
+      "size_bytes": 355
+    },
+    {
+      "relative_path": "results\\D1_chicago\\location2\\rolling_origin_combined.csv",
+      "size_bytes": 16019
+    },
+    {
+      "relative_path": "results\\D1_chicago\\model_comparison.csv",
+      "size_bytes": 158
+    },
+    {
+      "relative_path": "results\\D1_chicago\\residuals_ljung_box.csv",
+      "size_bytes": 346
+    },
+    {
+      "relative_path": "results\\D1_chicago\\rolling_origin_results.csv",
+      "size_bytes": 16041
+    },
+    {
+      "relative_path": "results\\D1_chicago\\test_predictions.csv",
+      "size_bytes": 1217
+    },
+    {
+      "relative_path": "src\\checkpointing.py",
+      "size_bytes": 3355
+    },
+    {
+      "relative_path": "src\\cv.py",
+      "size_bytes": 4595
+    },
+    {
+      "relative_path": "src\\device.py",
+      "size_bytes": 823
+    },
+    {
+      "relative_path": "src\\evaluation.py",
+      "size_bytes": 436
+    },
+    {
+      "relative_path": "src\\pipelines.py",
+      "size_bytes": 14254
+    }
+  ]
+}

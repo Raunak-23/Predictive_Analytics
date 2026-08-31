@@ -1,0 +1,37 @@
+{
+  "governance": {
+    "source_agency": "Chicago Data Portal",
+    "dataset_url": "https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2/about_data",
+    "access_date": "28-08-2026",
+    "licence_terms": "Open Data License",
+    "update_frequency": "daily",
+    "date_field_used": "Date",
+    "date_field_justification": "Timestamp for timeseries analysis and prediction",
+    "duplicate_handling_policy": "drop duplicates by case ID",
+    "known_limitations": "under-reporting, policy changes"
+  },
+  "environment": {
+    "environment": "local",
+    "project_root": "C:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis",
+    "raw_file_resolved_path": "C:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis\\data\\raw\\crime_extract.csv"
+  },
+  "device": {
+    "torch_cuda": false,
+    "gpu_name": null,
+    "cudf": false,
+    "cuml": false
+  },
+  "config": {
+    "dataset": "Chicago Crimes - 2001 to Present",
+    "dataset_tag": "D1_chicago",
+    "raw_filename": "crime_extract.csv",
+    "date_col": "Date",
+    "location_col": "District",
+    "location_value": null,
+    "location_value_2": null,
+    "frequency": "W-MON",
+    "test_periods": 12,
+    "seed": 42
+  },
+  "created_timestamp": "2026-08-31 09:46:34"
+}
