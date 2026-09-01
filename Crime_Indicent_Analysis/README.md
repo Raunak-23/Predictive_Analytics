@@ -5,7 +5,7 @@
 > **Author**: Raunak Pal (Reg. No: 23MID0045)  
 > **Topic**: Leakage-Safe Spatio-Temporal Forecasting of Weekly Crime Incident Counts via AR, ARIMA, SARIMA, and Deep Learning Architectures  
 > **Dataset**: City of Chicago Reported Crime Incidents (2001 to Present — 8,623,069 Records)  
-> **Evaluation Protocol**: 12-Week Chronological Out-of-Sample Holdout + 83-Fold Checkpointed Rolling-Origin Walk-Forward Backtesting  
+> **Evaluation Protocol**: 12-Week Chronological Out-of-Sample Holdout + 83-Fold Checkpointed Rolling-Origin Walk-Forward Backtesting (Training-Only History, Strict Quarantine)  
 
 ---
 
@@ -22,8 +22,8 @@ This repository provides an end-to-end, leakage-safe, production-ready time-seri
 | Locked Holdout MAE: 53.58          | Locked Holdout MAE: 26.99 / 46.13 | Locked Holdout MAE: 34.51 |
 +------------------------------------+-----------------------------------+---------------------------+
 | 83-Fold Walk-Forward Backtest      | Multi-District Spatial Scaling    | Ethical Boundary Protocol |
-| ARIMA Mean MAE: 27.87 ± 12.74      | 21 Police Districts Replicated    | Strictly Aggregate Counts |
-| SARIMA Mean MAE: 29.16 ± 11.87     | Batch cuML GPU / CPU Fallback     | Zero Person-Level Profiling|
+| ARIMA Mean MAE: 26.27 ± 11.45      | 21 Police Districts Replicated    | Strictly Aggregate Counts |
+| SARIMA Mean MAE: 29.85 ± 13.77     | Batch cuML GPU / CPU Fallback     | Zero Person-Level Profiling|
 +------------------------------------+-----------------------------------+---------------------------+
 ```
 
@@ -36,15 +36,15 @@ This repository provides an end-to-end, leakage-safe, production-ready time-seri
 
 ### 1.2 Key Empirical Findings
 
-| Model Architecture | Parameter Order / Config | 12-Wk Test MAE | 12-Wk Test RMSE | 83-Fold RO Mean MAE | 83-Fold RO Std MAE | 83-Fold RO Mean RMSE |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Naive (Persistence)** | $Y_{T+h} = Y_T$ (Baseline) | 53.58 | 76.65 | — | — | — |
-| **Autoregressive (AR)** | $p=3$, trend=`'ct'` | **26.99** | **49.81** | 30.14 | 13.78 | 35.32 |
-| **ARIMA (Selected)** | $(p=2, d=1, q=0)$, trend=`'n'` | 46.13 | 71.25 | **27.87** | **12.74** | **32.38** |
-| **SARIMA (Seasonal)** | $(2, 1, 0) \times (1, 1, 1)_{52}$ | 34.51 | 63.73 | 29.16 | 11.87 | 34.90 |
-| **LSTM Neural Network** | 2-Layer PyTorch, Win=12 | 36.08 | 60.21 | — | — | — |
+| Model Architecture | Parameter Order / Config | 12-Wk Test MAE | 12-Wk Test RMSE | RO Mean MAE | RO Std MAE | RO Mean RMSE | RO Folds |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Naive (Persistence)** | $Y_{T+h} = Y_T$ (Baseline) | 53.58 | 76.65 | — | — | — | — |
+| **Autoregressive (AR)** | $p=3$, trend=`'ct'` | **26.99** | **49.81** | 30.15 | 12.88 | 35.18 | 83 |
+| **ARIMA (Selected)** | $(p=2, d=1, q=0)$, trend=`'n'` | 46.13 | 71.25 | **26.27** | **11.45** | **31.23** | 83 |
+| **SARIMA (Seasonal)** | $(2, 1, 0) \times (1, 1, 1)_{52}$ | 34.51 | 63.73 | 29.85 | 13.77 | 35.91 | 84 |
+| **LSTM Neural Network** | 2-Layer PyTorch, Win=12 | 36.08 | 60.21 | — | — | — | — |
 
-* **The "Holdout Paradox" Resolved**: On the single 12-week test holdout, AR(3) posted the lowest point error (MAE 26.99 vs ARIMA 46.13). However, across 83 rolling-origin backtesting folds, **ARIMA(2, 1, 0)** demonstrated superior temporal stability (Mean MAE **27.87 ± 12.74** vs AR(3) **30.14 ± 13.78**). ARIMA is the empirically validated champion for continuous deployment.
+* **The "Holdout Paradox" Resolved**: On the single 12-week test holdout, AR(3) posted the lowest point error (MAE 26.99 vs ARIMA 46.13). However, across 83 rolling-origin backtesting folds evaluated strictly on historical training data, **ARIMA(2, 1, 0)** demonstrated superior temporal stability (Mean MAE **26.27 ± 11.45** vs AR(3) **30.15 ± 12.88**). ARIMA is the empirically validated champion for continuous deployment.
 * **Seasonal Integration**: Incorporating an annual 52-week seasonal differencing term ($s=52$) via SARIMA slashed test MAE from 46.13 down to **34.51**, accounting for summer peaks and winter troughs.
 * **Spatial Replication (District 011 Harrison)**: Replicating the pipeline on Chicago's second highest-volume district revealed non-identical stochastic dynamics ($d=0$ stationarity vs. $d=1$ for District 008), proving that time-series models must be independently fitted per spatial unit rather than transferred blindly.
 
@@ -60,7 +60,7 @@ Crime_Indicent_Analysis/
 ├── requirements.txt                                          # Pinned environment & framework dependencies
 │
 ├── notebooks/                                                # Full interactive research & experimental notebooks
-│   ├── chicago_crimes.ipynb                                  # Master 159-cell analysis notebook (Stages 0–14)
+│   ├── chicago_crimes.ipynb                                  # Master 160-cell analysis notebook (Stages 0–14)
 │   ├── chicago_crimes.html                                   # Compiled HTML report export with all figures & logs
 │   └── chicago_crimes.pdf                                    # Formatted PDF laboratory submission
 │
@@ -93,21 +93,22 @@ Crime_Indicent_Analysis/
 │       ├── ar_pipeline.joblib                                # Fitted AR(3) pipeline artifact
 │       ├── arima_pipeline.joblib                             # Fitted ARIMA(2,1,0) pipeline artifact
 │       ├── naive_pipeline.joblib                             # Fitted Naive persistence pipeline
-│       ├── final_ar3_pipeline.joblib                         # Final audited AR(3) model bundle
-│       ├── final_arima2_1_0_pipeline.joblib                  # Final audited ARIMA(2,1,0) model bundle
-│       ├── final_naive_pipeline.joblib                       # Final audited Naive model bundle
 │       ├── lstm_model.pt                                     # PyTorch state_dict for deep LSTM forecaster
 │       ├── governance_manifest.json                          # Ethical boundary, PII audit & license terms
 │       ├── checkpoints/                                      # Resumable execution state logs (JSONL)
 │       │   ├── arima_order_search.jsonl                      # Grid search history across 32 orders
-│       │   ├── ar_rolling_origin.jsonl                       # 83-fold AR backtest records
-│       │   ├── arima_rolling_origin.jsonl                    # 83-fold ARIMA backtest records
-│       │   └── sarima_rolling_origin.jsonl                   # 83-fold SARIMA backtest records
+│       │   ├── ar_rolling_origin_train_only.jsonl            # 83-fold AR train-only backtest records
+│       │   ├── arima_rolling_origin_train_only.jsonl         # 83-fold ARIMA train-only backtest records
+│       │   ├── sarima_rolling_origin_train_only.jsonl        # 84-fold SARIMA train-only backtest records
+│       │   └── neural_model.pt                               # Neural model checkpoint
 │       ├── location2/                                        # District 011 replication artifacts
-│       │   └── checkpoints/                                  # District 011 order search & CV checkpoints
+│       │   └── checkpoints/                                  # District 011 order search & train-only CV checkpoints
+│       │       ├── arima_order_search.jsonl
+│       │       ├── ar_rolling_origin_train_only.jsonl
+│       │       └── arima_rolling_origin_train_only.jsonl
 │       └── D1_chicago/
 │           ├── manifest.json                                 # Master experiment manifest & parameters
-│           └── file_inventory.json                           # 74-file cryptographic inventory & hashes
+│           └── file_inventory.json                           # 67-file cryptographic inventory & hashes
 │
 └── results/                                                  # Metric tables, CSV outputs & high-res figures
     └── D1_chicago/
@@ -115,7 +116,6 @@ Crime_Indicent_Analysis/
         ├── ar_results.json                                   # AR(3) coefficients & holdout scores
         ├── arima_summary.json                                # ARIMA(2,1,0) candidate summary & improvements
         ├── arima_candidate_ranking.csv                       # Full 32-configuration grid search results
-        ├── arima_test_predictions.csv                        # Point forecasts & intervals vs actuals
         ├── test_predictions.csv                              # Comparative predictions across all models
         ├── model_comparison.csv                              # Holdout metrics summary table
         ├── final_model_comparison.csv                        # Consolidated holdout & 83-fold CV metrics
@@ -132,7 +132,6 @@ Crime_Indicent_Analysis/
         │   ├── fig_acf_pacf_diff.png                         # Differenced series autocorrelation correlogram
         │   ├── fig_actual_vs_naive.png                       # Naive persistence holdout forecast
         │   ├── fig_actual_vs_ar.png                          # AR(3) holdout forecast vs actuals
-        │   ├── fig_actual_vs_arima.png                       # ARIMA(2,1,0) forecast with 95% intervals
         │   ├── fig_final_forecast_comparison.png             # Multi-model holdout comparative plot
         │   ├── fig_rolling_origin_mae.png                    # 83-fold backtesting error distribution
         │   ├── fig_rolling_origin_all_models.png             # AR vs ARIMA vs SARIMA fold-by-fold errors
@@ -206,8 +205,11 @@ Raw records represent individual, point-in-time incident dispatches. Modeling ag
 In time-series forecasting, traditional random $k$-fold cross-validation is strictly invalid because future observations would leak into historical parameter estimation. 
 
 * **Holdout Design**: A strict chronological split isolates the final **12 weeks** (~3 calendar months: `2026-06-08` to `2026-08-24`) as a locked operational holdout.
-* **In-Sample Partition**: The initial **1,327 weeks** (`2001-01-01` to `2026-06-01`) are reserved for diagnostic testing, order selection, and parameter fitting.
-* **Isolation Wall**: All statistical transformations, ADF unit-root tests, differencing orders, AIC grid searches, and parameter estimations are calculated strictly within the 1,327-week in-sample partition. The test partition is touched exactly once during final locked evaluation.
+* **In-Sample Partition**: The initial **1,327 weeks** (`2001-01-01` to `2026-06-01`) are reserved for diagnostic testing, order selection, parameter fitting, and historical cross-validation.
+* **Strict Temporal Quarantine & Zero Leakage**:
+  1. **Diagnostics & Grid Search Quarantine**: All statistical transformations, ADF unit-root tests, differencing orders, AIC grid searches, and parameter estimations are calculated strictly within the 1,327-week in-sample partition. Stage 7 explicitly defers all test set evaluation and plotting to Stage 9, maintaining complete isolation.
+  2. **Training-Only Rolling-Origin Backtesting**: Stage 8 walk-forward cross-validation operates strictly on the 1,327-week training history (`series = train.copy()`, asserting `series.index.max() < test.index.min()`). Folds never advance into or evaluate on the locked 12-week test set, eliminating temporal leakage in cross-validation metrics.
+  3. **One-Time Locked Test Touch**: The locked test partition is evaluated exactly once in Stage 9 after all model architectures and hyperparameters have been frozen.
 
 ```
 0                                                                 1327            1339 Weeks
@@ -296,7 +298,7 @@ Rank  Order      Trend  Validation MAE  Validation RMSE  AIC (Train Fit)
  4.   [3, 1, 0]    t        21.08            27.80          13,239.39
  5.   [4, 1, 0]    n        21.12            27.87          13,234.64
 ```
-* **Champion Model**: **ARIMA(2, 1, 0)** with no constant trend (`trend='n'`). Differencing eliminated the need for an explicit drift parameter.
+* **Champion Model**: **ARIMA(2, 1, 0)** with no constant trend (`trend='n'`). Differencing eliminated the need for an explicit drift parameter. Candidate selection and ranking are conducted purely on in-sample validation splits, strictly deferring locked holdout testing to Stage 9.
 
 ### 6.4 Seasonal ARIMA: SARIMA(2, 1, 0) $\times$ (1, 1, 1)$_{52}$
 To account for annual summer incident surges, seasonal parameters with period $s=52$ were incorporated:
@@ -356,17 +358,17 @@ Fold 82: [==================== Train: 1,324 Wks ====================] -> [Test: 
 ```
 
 ```text
-83-Fold Rolling-Origin Cross-Validation Results:
+83-Fold Rolling-Origin Cross-Validation Results (Training History Only):
 Model Architecture              Mean MAE    Std MAE    Mean RMSE    Std RMSE    Folds Evaluated
-ARIMA(2, 1, 0)                   27.87       12.74       32.38        14.09           83
-SARIMA(2, 1, 0)x(1, 1, 1, 52)    29.16       11.87       34.90        13.86           83
-AR(3)                            30.14       13.78       35.32        15.05           83
+ARIMA(2, 1, 0)                   26.27       11.45       31.23        12.72           83
+SARIMA(2, 1, 0)x(1, 1, 1, 52)    29.85       13.77       35.91        16.71           84
+AR(3)                            30.15       12.88       35.18        14.00           83
 ```
 
 #### Methodological Discovery: Resolving the "Holdout Paradox"
 * **The Conflict**: On the single 12-week holdout, AR(3) scored MAE 26.99 while ARIMA(2, 1, 0) scored 46.13.
 * **The Root Cause**: The single test holdout coincided with a sharp late-summer downward dip. AR(3)'s deterministic trend parameter ($\beta = -0.035$) caused it to decay downwards rapidly, accidentally matching this specific 12-week dip.
-* **The Generalization Proof**: Across 83 independent historical test folds, **ARIMA(2, 1, 0)** achieved lower mean error (MAE **27.87** vs **30.14**) and lower error variance ($\sigma = 12.74$ vs $13.78$). ARIMA generalises better across varying regimes, proving the necessity of multi-fold walk-forward validation over single-slice testing.
+* **The Generalization Proof**: Across 83 independent historical test folds within the training history, **ARIMA(2, 1, 0)** achieved lower mean error (MAE **26.27** vs **30.15**) and lower error variance ($\sigma = 11.45$ vs $12.88$). ARIMA generalises better across varying regimes, proving the necessity of multi-fold walk-forward validation over single-slice testing.
 
 ### 7.3 Prediction Interval Calibration
 ARIMA(2, 1, 0) generated 95% nominal parametric prediction intervals over the holdout horizon:
@@ -413,7 +415,7 @@ Selected ARIMA Specification     ARIMA(2, 1, 0), trend='n'    ARIMA(2, 0, 0), tr
 Locked Holdout Naive MAE         53.58                        43.17
 Locked Holdout AR(3) MAE         26.99 (Best)                 35.37 (Best)
 Locked Holdout ARIMA MAE         46.13                        59.17
-83-Fold Walk-Forward Best        ARIMA(2, 1, 0) (MAE 27.87)   AR(3) (MAE 28.84)
+83-Fold Walk-Forward Best        ARIMA(2, 1, 0) (MAE 26.27)   AR(3) (MAE 27.63)
 ```
 
 ### 9.1 Data-Grounded Spatial Insights
@@ -428,7 +430,7 @@ Locked Holdout ARIMA MAE         46.13                        59.17
 ### 10.1 Stage 14a — Seasonal ARIMA (SARIMA)
 Incorporating annual seasonality $(2, 1, 0) \times (1, 1, 1)_{52}$ produced a major breakthrough on the locked holdout:
 * **Holdout Score**: Slashed test MAE from **46.13 down to 34.51** (a 25.2% error reduction over standard ARIMA).
-* **83-Fold Stability**: Maintained consistent performance across all backtest folds (Mean MAE: **29.16 ± 11.87**), validating that crime in Chicago is fundamentally governed by an annual 52-week seasonal wave.
+* **84-Fold Stability**: Maintained consistent performance across all backtest folds (Mean MAE: **29.85 ± 13.77** across 84 folds), validating that crime in Chicago is fundamentally governed by an annual 52-week seasonal wave.
 
 ### 10.2 Stage 14b — Category-Specific Disaggregation (THEFT)
 Isolated reported **THEFT** occurrences in District 008 (`series_location1_theft.csv`):
@@ -451,7 +453,7 @@ Scaled the ARIMA pipeline across all 21 Chicago police districts with volume exc
 
 ### 10.5 Stage 14e — Deep Learning Verdict (PyTorch LSTM vs. ARIMA)
 * **Holdout Scores**: PyTorch LSTM achieved test MAE **36.08** and RMSE **60.21** (beating ARIMA(2,1,0)'s holdout MAE of 46.13).
-* **Critical Statistical Verdict**: While the LSTM beat ARIMA on the single 12-week slice by ~10 MAE points, this gap is **smaller than ARIMA's own backtesting standard deviation ($\sigma = 12.74$)**. The apparent improvement falls within normal temporal noise.
+* **Critical Statistical Verdict**: While the LSTM beat ARIMA on the single 12-week slice by ~10 MAE points, this gap is **smaller than ARIMA's own backtesting standard deviation ($\sigma = 11.45$)**. The apparent improvement falls within normal temporal noise.
 * **Operational Drawbacks of Deep Learning**:
   1. **Compute Overhead**: Required 200 epochs of iterative neural optimization vs. closed-form analytical estimation for AR/ARIMA.
   2. **Uncertainty Quantification**: Standard LSTMs lack parametric prediction intervals, whereas ARIMA provides mathematically rigorous 95% confidence intervals essential for municipal budgeting.
@@ -508,7 +510,7 @@ pip install -r requirements.txt
 ```
 
 ### 12.3 Running the Forecasting Engine
-1. **Interactive Execution**: Launch JupyterLab to inspect the complete 159-cell narrative:
+1. **Interactive Execution**: Launch JupyterLab to inspect the complete 160-cell narrative:
    ```bash
    jupyter lab notebooks/chicago_crimes.ipynb
    ```
@@ -516,10 +518,10 @@ pip install -r requirements.txt
    ```bash
    jupyter nbconvert --to html --execute notebooks/chicago_crimes.ipynb
    ```
-3. **Resuming Checkpointed Runs**: If grid search or walk-forward backtesting is interrupted, the engine resumes automatically from the last atomic record in `artifacts/D1_chicago/checkpoints/` without recomputing earlier folds.
+3. **Resuming Checkpointed Runs**: If grid search or walk-forward backtesting is interrupted, the engine resumes automatically from the last atomic record in `artifacts/D1_chicago/checkpoints/*_train_only.jsonl` without recomputing earlier folds.
 
 ### 12.4 Reproducibility Audit & Manifest Verification
-All 74 experiment artifacts, fitted pipelines, and metric tables are cataloged in `artifacts/D1_chicago/D1_chicago/manifest.json`. The reproducibility suite can be verified via:
+All 67 experiment artifacts, fitted pipelines, and metric tables are cataloged in `artifacts/D1_chicago/D1_chicago/manifest.json`. The reproducibility suite can be verified via:
 ```bash
 python -c "
 import json
