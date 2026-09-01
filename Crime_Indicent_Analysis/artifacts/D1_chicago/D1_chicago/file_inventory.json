@@ -1,67 +1,47 @@
 {
   "project_root": "C:\\Users\\apara\\Downloads\\VIT Downloads\\Predictive lab\\Crime_Indicent_Analysis",
-  "n_files": 74,
-  "total_bytes": 2503666359,
+  "n_files": 67,
+  "total_bytes": 2499396161,
   "files": [
     {
       "relative_path": "artifacts\\D1_chicago\\ar_pipeline.joblib",
-      "size_bytes": 153571
+      "size_bytes": 164387
     },
     {
       "relative_path": "artifacts\\D1_chicago\\arima_pipeline.joblib",
-      "size_bytes": 3857461
+      "size_bytes": 3890085
     },
     {
-      "relative_path": "artifacts\\D1_chicago\\checkpoints\\ar_rolling_origin.jsonl",
-      "size_bytes": 17155
+      "relative_path": "artifacts\\D1_chicago\\checkpoints\\ar_rolling_origin_train_only.jsonl",
+      "size_bytes": 17156
     },
     {
       "relative_path": "artifacts\\D1_chicago\\checkpoints\\arima_order_search.jsonl",
       "size_bytes": 5346
     },
     {
-      "relative_path": "artifacts\\D1_chicago\\checkpoints\\arima_rolling_origin.jsonl",
-      "size_bytes": 17395
-    },
-    {
-      "relative_path": "artifacts\\D1_chicago\\checkpoints\\sarima_rolling_origin.jsonl",
-      "size_bytes": 17479
-    },
-    {
-      "relative_path": "artifacts\\D1_chicago\\D1_chicago\\file_inventory.json",
-      "size_bytes": 8614
+      "relative_path": "artifacts\\D1_chicago\\checkpoints\\arima_rolling_origin_train_only.jsonl",
+      "size_bytes": 17405
     },
     {
       "relative_path": "artifacts\\D1_chicago\\D1_chicago\\manifest.json",
-      "size_bytes": 6972
-    },
-    {
-      "relative_path": "artifacts\\D1_chicago\\final_ar3_pipeline.joblib",
-      "size_bytes": 153539
-    },
-    {
-      "relative_path": "artifacts\\D1_chicago\\final_arima2_1_0_pipeline.joblib",
-      "size_bytes": 3857461
-    },
-    {
-      "relative_path": "artifacts\\D1_chicago\\final_naive_pipeline.joblib",
-      "size_bytes": 72
+      "size_bytes": 6873
     },
     {
       "relative_path": "artifacts\\D1_chicago\\governance_manifest.json",
-      "size_bytes": 1338
+      "size_bytes": 1738
     },
     {
-      "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\ar_rolling_origin.jsonl",
-      "size_bytes": 17155
+      "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\ar_rolling_origin_train_only.jsonl",
+      "size_bytes": 17148
     },
     {
       "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\arima_order_search.jsonl",
       "size_bytes": 5303
     },
     {
-      "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\arima_rolling_origin.jsonl",
-      "size_bytes": 17373
+      "relative_path": "artifacts\\D1_chicago\\location2\\checkpoints\\arima_rolling_origin_train_only.jsonl",
+      "size_bytes": 17386
     },
     {
       "relative_path": "artifacts\\D1_chicago\\naive_pipeline.joblib",
@@ -113,7 +93,7 @@
     },
     {
       "relative_path": "notebooks\\chicago_crimes.ipynb",
-      "size_bytes": 2409095
+      "size_bytes": 2294039
     },
     {
       "relative_path": "notebooks\\chicago_crimes.pdf",
@@ -121,7 +101,11 @@
     },
     {
       "relative_path": "README.md",
-      "size_bytes": 0
+      "size_bytes": 41242
+    },
+    {
+      "relative_path": "requirements.txt",
+      "size_bytes": 732
     },
     {
       "relative_path": "results\\D1_chicago\\ar_results.json",
@@ -134,10 +118,6 @@
     {
       "relative_path": "results\\D1_chicago\\arima_summary.json",
       "size_bytes": 382
-    },
-    {
-      "relative_path": "results\\D1_chicago\\arima_test_predictions.csv",
-      "size_bytes": 439
     },
     {
       "relative_path": "results\\D1_chicago\\baseline_scores.json",
@@ -158,10 +138,6 @@
     {
       "relative_path": "results\\D1_chicago\\fig_actual_vs_ar.png",
       "size_bytes": 42963
-    },
-    {
-      "relative_path": "results\\D1_chicago\\fig_actual_vs_arima.png",
-      "size_bytes": 41411
     },
     {
       "relative_path": "results\\D1_chicago\\fig_actual_vs_naive.png",
@@ -188,12 +164,8 @@
       "size_bytes": 79282
     },
     {
-      "relative_path": "results\\D1_chicago\\fig_rolling_origin_all_models.png",
-      "size_bytes": 157726
-    },
-    {
       "relative_path": "results\\D1_chicago\\fig_rolling_origin_mae.png",
-      "size_bytes": 109206
+      "size_bytes": 105056
     },
     {
       "relative_path": "results\\D1_chicago\\fig_rolling_stats.png",
@@ -261,7 +233,7 @@
     },
     {
       "relative_path": "results\\D1_chicago\\location2\\rolling_origin_combined.csv",
-      "size_bytes": 16019
+      "size_bytes": 16025
     },
     {
       "relative_path": "results\\D1_chicago\\model_comparison.csv",
@@ -273,7 +245,7 @@
     },
     {
       "relative_path": "results\\D1_chicago\\rolling_origin_results.csv",
-      "size_bytes": 16041
+      "size_bytes": 16052
     },
     {
       "relative_path": "results\\D1_chicago\\test_predictions.csv",

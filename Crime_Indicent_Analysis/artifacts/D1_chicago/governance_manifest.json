@@ -1,13 +1,13 @@
 {
   "governance": {
-    "source_agency": "Chicago Data Portal",
+    "source_agency": "City of Chicago Data Portal / Chicago Police Department",
     "dataset_url": "https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2/about_data",
     "access_date": "28-08-2026",
     "licence_terms": "Open Data License",
     "update_frequency": "daily",
     "date_field_used": "Date",
-    "date_field_justification": "Timestamp for timeseries analysis and prediction",
-    "duplicate_handling_policy": "drop duplicates by case ID",
+    "date_field_justification": "The Chicago Crimes Date field is used as the incident occurrence timestamp for constructing the weekly reported-incident count series. Using the occurrence timestamp aligns the forecasting target with the time period in which the reported incident occurred.",
+    "duplicate_handling_policy": "Repeated Case Numbers were audited but not automatically removed; multiple rows may have incident-level semantics.",
     "known_limitations": "under-reporting, policy changes"
   },
   "environment": {
@@ -31,7 +31,9 @@
     "location_value_2": null,
     "frequency": "W-MON",
     "test_periods": 12,
-    "seed": 42
+    "seed": 42,
+    "category_col": "Primary Type",
+    "id_col": "Case Number"
   },
-  "created_timestamp": "2026-08-31 09:46:34"
+  "created_timestamp": "2026-09-01 02:26:58"
 }
