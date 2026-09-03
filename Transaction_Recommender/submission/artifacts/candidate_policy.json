@@ -1,7 +1,0 @@
-{
-  "candidate_selection_rule": "top_n_by_historical_orders",
-  "candidate_size": 1000,
-  "min_bound": 500,
-  "max_bound": 2000,
-  "negative_sampling_ratio": "50:1"
-}
