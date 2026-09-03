@@ -19,7 +19,7 @@ MODELS_DIR: Path = BASE_DIR / "models"
 RESULTS_DIR: Path = BASE_DIR / "results"
 FIGURES_DIR: Path = BASE_DIR / "figures"
 NOTEBOOKS_DIR: Path = BASE_DIR / "notebooks"
-SCRIPTS_DIR: Path = BASE_DIR / "scripts"
+SRC_DIR: Path = BASE_DIR / "src"
 
 # Ensure all primary runtime directories exist
 for _d in [
@@ -30,7 +30,6 @@ for _d in [
     RESULTS_DIR,
     FIGURES_DIR,
     NOTEBOOKS_DIR,
-    SCRIPTS_DIR,
 ]:
     _d.mkdir(parents=True, exist_ok=True)
 

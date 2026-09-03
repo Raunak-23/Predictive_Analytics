@@ -15,7 +15,7 @@ from .config import (
     PROCESSED_DIR,
     RAW_DIR,
     RESULTS_DIR,
-    SCRIPTS_DIR,
+    SRC_DIR,
     SEED,
     TUNING_PARAM_GRID,
 )
