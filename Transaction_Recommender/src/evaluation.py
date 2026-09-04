@@ -185,6 +185,7 @@ def build_five_case_audit(
     if c1_candidates:
         cand = max(c1_candidates, key=lambda x: len(x["rf_hits"]))
         seen_users.add(cand["u"])
+        rf_hits_list = sorted(list(cand["rf_hits"]))
         cases.append({
             "Case_Type": "1. Successful Personalized Hit",
             "CustomerID": cand["u"],
@@ -194,7 +195,7 @@ def build_five_case_audit(
             "Top_5_Recommendations": str(cand["rf_top"][:k]),
             "Hits": len(cand["rf_hits"]),
             "Hit_Status": "HIT",
-            "Comment": f"RF successfully predicted {len(cand['rf_hits'])} future items using historical purchase affinity and repeat signals.",
+            "Comment": f"RF successfully predicted {len(cand['rf_hits'])} future item(s) ({rf_hits_list[:2]}) using historical purchase affinity and repeat signals.",
         })
     else:
         cases.append({
@@ -217,6 +218,7 @@ def build_five_case_audit(
     if c2_candidates:
         cand = c2_candidates[0]
         seen_users.add(cand["u"])
+        pop_hits_list = sorted(list(cand["pop_hits"]))
         cases.append({
             "Case_Type": "2. RF Miss / Popularity Hit",
             "CustomerID": cand["u"],
@@ -226,7 +228,7 @@ def build_five_case_audit(
             "Top_5_Recommendations": str(cand["rf_top"][:k]),
             "Hits": 0,
             "Hit_Status": "MISS (RF) / HIT (POP)",
-            "Comment": f"Global market favorite was caught by baseline but RF over-indexed on unrepeated customer-specific features.",
+            "Comment": f"Global baseline captured high-velocity item(s) {pop_hits_list[:2]}, which RF ranked lower due to customer feature divergence.",
         })
     else:
         cases.append({
@@ -249,6 +251,7 @@ def build_five_case_audit(
     if c3_candidates:
         cand = max(c3_candidates, key=lambda x: len(x["rf_hits"]) - len(x["pop_hits"]))
         seen_users.add(cand["u"])
+        rf_hits_list = sorted(list(cand["rf_hits"]))
         cases.append({
             "Case_Type": "3. RF Beats Popularity",
             "CustomerID": cand["u"],
@@ -258,7 +261,7 @@ def build_five_case_audit(
             "Top_5_Recommendations": str(cand["rf_top"][:k]),
             "Hits": len(cand["rf_hits"]),
             "Hit_Status": f"RF {len(cand['rf_hits'])} vs POP {len(cand['pop_hits'])}",
-            "Comment": f"Personalized ranking prioritized niche items matched to customer history that global popularity ranked out of Top-5.",
+            "Comment": f"Personalized ranking correctly surfaced customer-affinity product(s) {rf_hits_list[:2]} that unpersonalized popularity ranked outside Top-5.",
         })
     else:
         cases.append({
@@ -290,20 +293,57 @@ def build_five_case_audit(
             "Top_5_Recommendations": str(cand["rf_top"][:k]),
             "Hits": len(cand["rf_hits"]),
             "Hit_Status": "HIT" if len(cand["rf_hits"]) > 0 else "MISS",
-            "Comment": "Minimal historical signal forced model to rely heavily on item popularity and broad category priors.",
+            "Comment": f"Customer with sparse history ({cand['hist_size']} prior purchases) evaluated under high-uncertainty regime (Hits: {len(cand['rf_hits'])}).",
         })
     else:
-        cases.append({
-            "Case_Type": "4. Sparse / Cold-Start Customer",
-            "CustomerID": "N/A",
-            "History_Size": 0,
-            "History_Snippet": "[]",
-            "True_Future_Items": "[]",
-            "Top_5_Recommendations": "[]",
-            "Hits": 0,
-            "Hit_Status": "N/A",
-            "Comment": "All active evaluation test users had more than 2 historical orders.",
-        })
+        # Deterministically select the real test customer with the minimum historical count
+        available = [
+            info for info in user_analysis.values()
+            if info["u"] not in seen_users and len(info["rf_top"]) > 0
+        ]
+        if not available:
+            available = [info for info in user_analysis.values() if info["u"] not in seen_users]
+        if available:
+            cand = min(
+                available,
+                key=lambda x: (x["hist_size"], int(x["u"]) if str(x["u"]).isdigit() else str(x["u"])),
+            )
+            seen_users.add(cand["u"])
+            rf_hits_list = sorted(list(cand["rf_hits"]))
+            if len(cand["rf_hits"]) > 0:
+                comment = (
+                    f"Sparsest available test customer ({cand['hist_size']} prior purchases); "
+                    f"RF personalized signals yielded {len(cand['rf_hits'])} hit(s) ({rf_hits_list[:2]}) "
+                    f"vs POP {len(cand['pop_hits'])}."
+                )
+            else:
+                comment = (
+                    f"Sparsest available test customer ({cand['hist_size']} prior purchases) "
+                    f"evaluated under high-uncertainty regime with zero hits."
+                )
+            cases.append({
+                "Case_Type": "4. Sparse / Cold-Start Customer",
+                "CustomerID": cand["u"],
+                "History_Size": cand["hist_size"],
+                "History_Snippet": str(cand["history"][:5]),
+                "True_Future_Items": str(cand["true_items"][:5]),
+                "Top_5_Recommendations": str(cand["rf_top"][:k]),
+                "Hits": len(cand["rf_hits"]),
+                "Hit_Status": "HIT" if len(cand["rf_hits"]) > 0 else "MISS",
+                "Comment": comment,
+            })
+        else:
+            cases.append({
+                "Case_Type": "4. Sparse / Cold-Start Customer",
+                "CustomerID": "N/A",
+                "History_Size": 0,
+                "History_Snippet": "[]",
+                "True_Future_Items": "[]",
+                "Top_5_Recommendations": "[]",
+                "Hits": 0,
+                "Hit_Status": "N/A",
+                "Comment": "All active evaluation test users had more than 2 historical orders.",
+            })
 
     # Case 5: Questionable recommendation traceable to popularity dominance / negative sampling
     c5_candidates = [
@@ -321,7 +361,7 @@ def build_five_case_audit(
             "Top_5_Recommendations": str(cand["rf_top"][:k]),
             "Hits": 0,
             "Hit_Status": "MISS",
-            "Comment": "Model predicted items with high global sales velocity that failed to align with customer's specialized category interest.",
+            "Comment": f"Customer with extensive history ({cand['hist_size']} purchases) received zero Top-5 hits, reflecting popularity bias or negative sampling variance.",
         })
     else:
         cases.append({

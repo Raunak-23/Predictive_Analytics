@@ -9,6 +9,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.metrics import average_precision_score, roc_auc_score
 
 
 def set_plotting_style() -> None:
@@ -230,21 +231,45 @@ def score_distribution_plot(
 ) -> Tuple[plt.Figure, Dict[str, Any]]:
     """
     Plot predicted recommendation-score distribution for positives vs negatives (Section 17 item 9).
+    Diagnoses score calibration, percentile spread, and pair-level ROC-AUC / PR-AUC.
     """
     set_plotting_style()
-    pos_scores = scored_df.loc[scored_df[label_col] == 1, score_col].dropna().values
-    neg_scores = scored_df.loc[scored_df[label_col] == 0, score_col].dropna().values
+    pos_mask = scored_df[label_col] == 1
+    neg_mask = scored_df[label_col] == 0
+    pos_scores = scored_df.loc[pos_mask, score_col].dropna().values
+    neg_scores = scored_df.loc[neg_mask, score_col].dropna().values
 
+    pos_mean = float(np.mean(pos_scores)) if len(pos_scores) > 0 else 0.0
+    neg_mean = float(np.mean(neg_scores)) if len(neg_scores) > 0 else 0.0
     pos_median = float(np.median(pos_scores)) if len(pos_scores) > 0 else 0.0
     neg_median = float(np.median(neg_scores)) if len(neg_scores) > 0 else 0.0
-    gap = round(pos_median - neg_median, 4)
+    pos_p75 = float(np.percentile(pos_scores, 75)) if len(pos_scores) > 0 else 0.0
+    neg_p75 = float(np.percentile(neg_scores, 75)) if len(neg_scores) > 0 else 0.0
+    pos_p90 = float(np.percentile(pos_scores, 90)) if len(pos_scores) > 0 else 0.0
+    neg_p90 = float(np.percentile(neg_scores, 90)) if len(neg_scores) > 0 else 0.0
+    pos_p99 = float(np.percentile(pos_scores, 99)) if len(pos_scores) > 0 else 0.0
+    neg_p99 = float(np.percentile(neg_scores, 99)) if len(neg_scores) > 0 else 0.0
+
+    roc_auc = float(roc_auc_score(scored_df[label_col], scored_df[score_col])) if len(pos_scores) > 0 and len(neg_scores) > 0 else np.nan
+    pr_auc = float(average_precision_score(scored_df[label_col], scored_df[score_col])) if len(pos_scores) > 0 and len(neg_scores) > 0 else np.nan
 
     stats = {
-        "positive_score_mean": round(float(np.mean(pos_scores)), 4) if len(pos_scores) > 0 else 0.0,
+        "positive_score_mean": round(pos_mean, 4),
         "positive_score_median": round(pos_median, 4),
-        "negative_score_mean": round(float(np.mean(neg_scores)), 4) if len(neg_scores) > 0 else 0.0,
+        "positive_score_p75": round(pos_p75, 4),
+        "positive_score_p90": round(pos_p90, 4),
+        "positive_score_p99": round(pos_p99, 4),
+        "negative_score_mean": round(neg_mean, 4),
         "negative_score_median": round(neg_median, 4),
-        "median_separability_gap": gap,
+        "negative_score_p75": round(neg_p75, 4),
+        "negative_score_p90": round(neg_p90, 4),
+        "negative_score_p99": round(neg_p99, 4),
+        "median_separability_gap": round(pos_median - neg_median, 4),
+        "mean_separability_gap": round(pos_mean - neg_mean, 4),
+        "pair_roc_auc": round(roc_auc, 4) if not np.isnan(roc_auc) else 0.0,
+        "pair_pr_auc": round(pr_auc, 4) if not np.isnan(pr_auc) else 0.0,
+        "roc_auc": round(roc_auc, 4) if not np.isnan(roc_auc) else 0.0,
+        "pr_auc": round(pr_auc, 4) if not np.isnan(pr_auc) else 0.0,
     }
 
     fig, ax = plt.subplots(figsize=(9, 4.5), dpi=150)
@@ -257,7 +282,7 @@ def score_distribution_plot(
         alpha=0.6,
         color="#d62728",
         edgecolor="#851414",
-        label=f"Negatives (y=0, Median: {neg_median:.3f})",
+        label=f"Negatives (y=0, Mean: {neg_mean:.3f}, Med: {neg_median:.3f})",
     )
     ax.hist(
         pos_scores,
@@ -266,16 +291,26 @@ def score_distribution_plot(
         alpha=0.6,
         color="#2ca02c",
         edgecolor="#1b6e1b",
-        label=f"Positives (y=1, Median: {pos_median:.3f})",
+        label=f"Positives (y=1, Mean: {pos_mean:.3f}, P90: {pos_p90:.3f})",
     )
 
-    ax.axvline(neg_median, color="#851414", linestyle="--", linewidth=1.8)
-    ax.axvline(pos_median, color="#1b6e1b", linestyle="--", linewidth=1.8)
+    ax.axvline(neg_mean, color="#851414", linestyle="--", linewidth=1.5, label=f"Neg Mean ({neg_mean:.3f})")
+    ax.axvline(pos_mean, color="#1b6e1b", linestyle="--", linewidth=1.5, label=f"Pos Mean ({pos_mean:.3f})")
+
+    diag_text = f"Pair Diagnostics:\nROC-AUC = {roc_auc:.4f}\nPR-AUC = {pr_auc:.4f}"
+    ax.text(
+        0.70,
+        0.75,
+        diag_text,
+        transform=ax.transAxes,
+        fontsize=9,
+        bbox=dict(boxstyle="round,pad=0.5", facecolor="#ffffff", edgecolor="#888888", alpha=0.9),
+    )
 
     ax.set_title("Propensity Score Distribution: Positives vs Sampled Negatives")
     ax.set_xlabel("Predicted Purchase Propensity P(y=1)")
     ax.set_ylabel("Probability Density")
-    ax.legend(frameon=True)
+    ax.legend(frameon=True, loc="upper right")
     ax.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
 
@@ -303,14 +338,16 @@ def catalog_coverage_plot(
     total_catalog = len(catalog_set)
     catalog_coverage_pct = round((recommended_unique / max(total_catalog, 1)) * 100.0, 2)
 
-    # Lorenz curve for recommendation concentration
+    # Lorenz curve for recommendation concentration (must start at (0, 0))
     sorted_freq = np.sort(item_freq.values)
-    cum_freq = np.cumsum(sorted_freq) / max(cum_freq_sum := np.sum(sorted_freq), 1.0)
+    cum_freq_raw = np.cumsum(sorted_freq) / max(cum_freq_sum := np.sum(sorted_freq), 1.0)
+    cum_freq = np.insert(cum_freq_raw, 0, 0.0)
     x_lorenz = np.linspace(0, 1, len(cum_freq))
 
-    # Gini coefficient
+    # Gini coefficient (mathematically bounded in [0, 1])
     _trapz = getattr(np, "trapezoid", getattr(np, "trapz", None))
     gini = float(1.0 - 2.0 * _trapz(cum_freq, x_lorenz)) if len(cum_freq) > 1 else 0.0
+    gini = max(0.0, min(1.0, float(gini)))
 
     stats = {
         "total_catalog_size": total_catalog,
