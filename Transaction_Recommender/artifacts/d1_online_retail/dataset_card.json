@@ -8,7 +8,7 @@
   "pct_missing_user_id": 24.93,
   "missing_item_count": 0,
   "pct_missing_item_id": 0.0,
-  "dataset_name": "d1_online_retail",
+  "dataset_name": "UCI Online Retail",
   "initial_rows": 541909,
   "removed_missing_user_id": 135080,
   "removed_cancellations_and_returns": 8905,
@@ -21,5 +21,9 @@
   "unique_users_clean": 4339,
   "unique_items_clean": 3665,
   "date_range_start": "2010-12-01 08:26:00",
-  "date_range_end": "2011-12-09 12:50:00"
+  "date_range_end": "2011-12-09 12:50:00",
+  "source_url": "https://archive.ics.uci.edu/dataset/352/online+retail",
+  "access_date": "2026-09-02",
+  "local_file": "data/raw/d1_online_retail/online_retail.csv",
+  "sha256_hash": "c820e928a9cb01d05738b0c36b5033ef661eccfb82f09f2e5ce8542da73b0b99"
 }

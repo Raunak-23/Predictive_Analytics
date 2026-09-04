@@ -8,7 +8,7 @@
   "pct_missing_user_id": 0.0,
   "missing_item_count": 0,
   "pct_missing_item_id": 0.0,
-  "dataset_name": "d2_advanced",
+  "dataset_name": "Instacart Market Basket Analysis (Harmonized)",
   "initial_rows": 156227,
   "removed_missing_user_id": 0,
   "removed_cancellations_and_returns": 0,
@@ -21,5 +21,9 @@
   "unique_users_clean": 1000,
   "unique_items_clean": 15227,
   "date_range_start": "2020-01-08 00:00:00",
-  "date_range_end": "2021-12-01 00:00:00"
+  "date_range_end": "2021-12-01 00:00:00",
+  "source_url": "https://www.kaggle.com/c/instacart-market-basket-analysis",
+  "access_date": "2026-09-02",
+  "local_file": "data/raw/d2_advanced/instacart_transactions.csv",
+  "sha256_hash": "2ff1a8c9b3d4f1345634dcf19c727038e2d421fb15ae5fa42c8d23d8c1c5a98d"
 }

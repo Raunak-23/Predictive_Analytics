@@ -3,5 +3,7 @@
   "candidate_size": 1000,
   "min_bound": 500,
   "max_bound": 2000,
-  "negative_sampling_ratio": "50:1"
+  "negative_sampling_ratio": "50:1",
+  "allow_repeats": true,
+  "repeat_purchase_rationale": "Replenishment of commercial giftware and repeat staple purchases represent authentic demand."
 }

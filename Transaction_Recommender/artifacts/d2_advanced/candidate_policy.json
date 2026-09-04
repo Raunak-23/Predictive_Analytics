@@ -4,5 +4,6 @@
   "min_bound": 500,
   "max_bound": 2000,
   "negative_sampling_ratio": "50:1",
-  "repeat_purchase_policy": "allowed_and_modeled_via_repeat_indicator"
+  "allow_repeats": true,
+  "repeat_purchase_rationale": "Grocery purchases require regular perishable and pantry replenishment."
 }
