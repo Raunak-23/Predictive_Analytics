@@ -1,2 +1,9 @@
-Dataset,Candidate_Universe_Size,Candidate_Recall,Users_Fully_Covered_Pct,Min_Bound,Max_Bound
-D1_Online_Retail,1000,0.5684,6.32,500,2000
+Metric,Value
+All eligible test users,2278
+Users with at least one future positive,2278
+Users with >=1 candidate-representable positive,2242
+Users with all future positives represented,144
+Users with some future positives excluded,2134
+Number of excluded future-positive items,1918
+Aggregate candidate recall,56.84% (0.5684)
+Percentage of users with 100% candidate coverage,6.32%
