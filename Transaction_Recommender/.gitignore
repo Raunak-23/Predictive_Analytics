@@ -1,0 +1,23 @@
+# ── Python Cache & Environment ──
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ── Raw and Large Processed Datasets (Must NEVER be pushed to GitHub) ──
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.zip
+*.parquet
+*.tar.gz
+*.7z
+
+# ── Document & Report Binaries (Handled per repo policy) ──
+*.docx
+*.pdf
+~$*
