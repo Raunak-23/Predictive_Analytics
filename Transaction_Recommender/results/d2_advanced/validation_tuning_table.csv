@@ -1,0 +1,9 @@
+config_id,n_estimators,max_depth,min_samples_leaf,max_features,class_weight,val_recall_at_10,val_precision_at_10,val_pr_auc,val_roc_auc
+1,200,None,2,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795
+2,300,None,2,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795
+3,200,None,5,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795
+4,300,None,5,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795
+5,200,12,2,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795
+6,300,12,2,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795
+7,200,12,5,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795
+8,300,12,5,sqrt,balanced_subsample,0.5792,0.8927,0.8037,0.795

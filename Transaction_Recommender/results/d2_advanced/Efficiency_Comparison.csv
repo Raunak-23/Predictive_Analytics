@@ -1,0 +1,4 @@
+System,Training_Time_s,Scoring_Latency_ms_user,Model_Size_MB,Catalog_Coverage_Pct,Complexity_Note
+Popularity,0.086,0.01,0.01,1.0,O(1) lookup table; zero personalization
+Random Forest,3.838,5.2,0.0,20.0,Heavy feature joins; supervised tree scoring
+Matrix Factorization (SVD),0.213,0.22,0.12,13.1,Compact latent vectors; inner-product dot product

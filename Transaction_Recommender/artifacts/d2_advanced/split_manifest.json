@@ -1,0 +1,11 @@
+{
+  "dataset": "d2_advanced",
+  "train_end": "2020-05-15",
+  "val_end": "2020-08-15",
+  "train_rows": 110806,
+  "val_rows": 22637,
+  "test_rows": 22784,
+  "train_max_ts": "2020-05-13 00:00:00",
+  "val_min_ts": "2020-05-20 00:00:00",
+  "test_min_ts": "2020-08-19 00:00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "dataset_name": "Instacart Market Basket Analysis (D3)",
+  "source_url": "https://www.kaggle.com/competitions/instacart-market-basket-analysis/data",
+  "version_hash": "sha256:c347cd7fa301c068ed391c7c77620f0e26e18f65d04cb907b6389c670db03038",
+  "total_orders_in_orders_csv": 3421083,
+  "train_orders": 131209,
+  "train_transactions_rows": 1384617,
+  "unique_users_in_train": 131209,
+  "unique_products_in_train": 39123,
+  "total_catalog_products": 49688,
+  "total_aisles": 134,
+  "total_departments": 21,
+  "structural_missing_policy": "DaysSincePriorOrder is NaN on first orders (order_number=1). Modeled with `is_first_order=1` and `DaysSincePriorOrder=0`.",
+  "recommended_use": "Advanced next-basket / repeat-purchase recommendation and cross-dataset replication (E9).",
+  "privacy_usage_note": "Anonymized user identifiers with grocery baskets. No direct PII."
+}

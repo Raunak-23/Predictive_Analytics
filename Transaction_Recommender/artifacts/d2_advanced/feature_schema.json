@@ -1,0 +1,25 @@
+{
+  "feature_count": 20,
+  "feature_columns": [
+    "cust_txns",
+    "cust_items",
+    "cust_qty",
+    "cust_spend",
+    "cust_recency_days",
+    "cust_avg_basket_spend",
+    "cust_avg_basket_size",
+    "item_txns",
+    "item_buyers",
+    "item_qty",
+    "item_spend",
+    "item_avg_price",
+    "item_recency_days",
+    "item_repeat_rate",
+    "pair_purchases",
+    "pair_qty",
+    "pair_spend",
+    "pair_recency_days",
+    "pair_repeat_indicator",
+    "pair_spend_share"
+  ]
+}

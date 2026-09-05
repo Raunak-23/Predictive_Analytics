@@ -1,0 +1,6 @@
+Case_Type,CustomerID,History_Size,History_Snippet,True_Future_Items,Top_5_Recommendations,Hits,Hit_Status,Comment
+1. Successful Personalized Hit,1027,269,"['26209', '18027', '11520', '8025', '21137']","['34610', '16970', '11143', '38775', '27020']","['13176', '21137', '47209', '47766', '26209']",5,HIT,RF successfully predicted 5 future items using historical purchase affinity and repeat signals.
+2. RF Miss / Popularity Hit,612,438,"['9839', '24382', '37665', '16759', '39877']","['27197', '43221', '23375', '20738', '36695']","['21903', '47209', '16797', '47626', '24964']",0,MISS (RF) / HIT (POP),Global market favorite was caught by baseline but RF over-indexed on unrepeated customer-specific features.
+3. RF Beats Popularity,1213,208,"['23405', '2311', '36406', '22963', '4729']","['12409', '20600', '38275', '11896', '2311']","['19660', '8859', '22963', '8021', '12409']",5,RF 5 vs POP 0,Personalized ranking prioritized niche items matched to customer history that global popularity ranked out of Top-5.
+4. Sparse / Cold-Start Customer,N/A,0,[],[],[],0,N/A,All active evaluation test users had more than 2 historical orders.
+5. Questionable / Dominated Case,138,148,"['16974', '10473', '21903', '12341', '22046']",['42475'],[],0,MISS,Model predicted items with high global sales velocity that failed to align with customer's specialized category interest.
