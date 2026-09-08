@@ -48,7 +48,6 @@ Transaction_Recommender/
 │   ├── d1_online_retail/                # Trained Random Forest classifier
 │   └── d2_advanced/                     # Random Forest, Matrix Factorization & Popularity
 ├── results/                             # Evaluation metrics, error audits & final reports
-│   ├── Experiment_07_Report.docx        # Generated comprehensive 100-mark lab report
 │   ├── d1_online_retail/                # Ranking metrics, candidate recall, recommendations
 │   └── d2_advanced/                     # Ranking metrics, uncertainty analysis, efficiency
 ├── figures/                             # Generated diagnostic plots (EDA, ROC, metrics)
