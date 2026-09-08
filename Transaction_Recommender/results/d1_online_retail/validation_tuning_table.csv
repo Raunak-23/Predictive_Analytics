@@ -1,9 +1,9 @@
 config_id,n_estimators,max_depth,min_samples_leaf,max_features,class_weight,val_recall_at_10,val_precision_at_10,val_pr_auc,val_roc_auc
-1,200,None,2,sqrt,balanced_subsample,0.6458,0.828,0.6627,0.6597
-2,300,None,2,sqrt,balanced_subsample,0.6454,0.8274,0.6629,0.6595
-3,200,None,5,sqrt,balanced_subsample,0.645,0.8267,0.6629,0.6591
-4,300,None,5,sqrt,balanced_subsample,0.6443,0.8257,0.6633,0.659
-5,200,12,2,sqrt,balanced_subsample,0.6458,0.828,0.6627,0.6597
-6,300,12,2,sqrt,balanced_subsample,0.6454,0.8274,0.6629,0.6595
-7,200,12,5,sqrt,balanced_subsample,0.645,0.8267,0.6629,0.6591
-8,300,12,5,sqrt,balanced_subsample,0.6443,0.8257,0.6633,0.659
+1,200,None,2,sqrt,balanced_subsample,0.6488,0.8316,0.6674,0.663
+2,300,None,2,sqrt,balanced_subsample,0.6483,0.8311,0.6676,0.663
+3,200,None,5,sqrt,balanced_subsample,0.6478,0.8302,0.6676,0.6621
+4,300,None,5,sqrt,balanced_subsample,0.6472,0.8296,0.6682,0.6622
+5,200,12,2,sqrt,balanced_subsample,0.6488,0.8316,0.6674,0.663
+6,300,12,2,sqrt,balanced_subsample,0.6483,0.8311,0.6676,0.663
+7,200,12,5,sqrt,balanced_subsample,0.6478,0.8302,0.6676,0.6621
+8,300,12,5,sqrt,balanced_subsample,0.6472,0.8296,0.6682,0.6622

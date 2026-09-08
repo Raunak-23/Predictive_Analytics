@@ -39,7 +39,6 @@ Transaction_Recommender/
 │   ├── run_d1_online_retail.py          # End-to-end execution pipeline for Dataset D1
 │   ├── run_d2_advanced.py               # End-to-end execution pipeline for Dataset D2
 │   ├── prepare_instacart_data.py        # Instacart raw tables merge utility
-│   ├── generate_report.py               # Automated publication-quality Word report generator
 │   └── infer.py                         # CLI inference tool for custom data & single queries
 ├── artifacts/                           # Machine-readable schemas, policies & manifests
 │   ├── d1_online_retail/                # D1 feature schema, split manifest, candidate policy
@@ -48,7 +47,6 @@ Transaction_Recommender/
 │   ├── d1_online_retail/                # Trained Random Forest classifier
 │   └── d2_advanced/                     # Random Forest, Matrix Factorization & Popularity
 ├── results/                             # Evaluation metrics, error audits & final reports
-│   ├── Experiment_07_Report.docx        # Generated comprehensive 100-mark lab report
 │   ├── d1_online_retail/                # Ranking metrics, candidate recall, recommendations
 │   └── d2_advanced/                     # Ranking metrics, uncertainty analysis, efficiency
 ├── figures/                             # Generated diagnostic plots (EDA, ROC, metrics)
@@ -70,7 +68,7 @@ The repository implements strict data hygiene and temporal integrity across two 
   - Dropped 135,080 rows lacking customer IDs for personalized recommendation modeling.
   - Excluded 8,905 return/cancellation invoices (`'C'` prefix) and non-positive quantity/price entries to ensure only valid purchase events represent positive recommendation targets.
   - Formatted `InvoiceDate` to ISO-8601 datetimes and sorted strictly chronologically.
-  - Cleaned dataset yields 397,924 valid transactions across 4,339 customers and 3,665 unique items.
+  - Cleaned dataset yields 387,880 valid transactions across 4,339 customers and 3,665 unique items.
 
 #### 2. Dataset D2: Instacart Market Basket Benchmark (`data/raw/instacart/`)
 - **Source**: Instacart Public Grocery Benchmark.

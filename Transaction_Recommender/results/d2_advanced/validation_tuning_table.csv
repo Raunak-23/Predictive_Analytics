@@ -1,9 +1,9 @@
 config_id,n_estimators,max_depth,min_samples_leaf,max_features,class_weight,val_recall_at_10,val_precision_at_10,val_pr_auc,val_roc_auc
-1,200,None,2,sqrt,balanced_subsample,0.5804,0.8939,0.804,0.7952
-2,300,None,2,sqrt,balanced_subsample,0.5804,0.8939,0.804,0.7951
-3,200,None,5,sqrt,balanced_subsample,0.5804,0.8939,0.804,0.7952
-4,300,None,5,sqrt,balanced_subsample,0.5801,0.8935,0.804,0.7952
-5,200,12,2,sqrt,balanced_subsample,0.5804,0.8939,0.804,0.7952
-6,300,12,2,sqrt,balanced_subsample,0.5804,0.8939,0.804,0.7951
-7,200,12,5,sqrt,balanced_subsample,0.5804,0.8939,0.804,0.7952
-8,300,12,5,sqrt,balanced_subsample,0.5801,0.8935,0.804,0.7952
+1,200,None,2,sqrt,balanced_subsample,0.5812,0.8951,0.8018,0.7938
+2,300,None,2,sqrt,balanced_subsample,0.5812,0.8951,0.8018,0.7937
+3,200,None,5,sqrt,balanced_subsample,0.5812,0.8951,0.8018,0.7938
+4,300,None,5,sqrt,balanced_subsample,0.5812,0.8951,0.8019,0.7937
+5,200,12,2,sqrt,balanced_subsample,0.5812,0.8951,0.8018,0.7938
+6,300,12,2,sqrt,balanced_subsample,0.5812,0.8951,0.8018,0.7937
+7,200,12,5,sqrt,balanced_subsample,0.5812,0.8951,0.8018,0.7938
+8,300,12,5,sqrt,balanced_subsample,0.5812,0.8951,0.8019,0.7937
