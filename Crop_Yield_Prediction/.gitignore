@@ -1,0 +1,29 @@
+# Environment and credentials
+.env
+.env.local
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Data directories (raw data excluded by default due to redistribution/licensing policies)
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+
+# Operating system files
+.DS_Store
+Thumbs.db
