@@ -1,0 +1,15 @@
+{
+  "raw_file": "Crop_recommendation.csv",
+  "raw_sha256": "54a5a6e5408668e668667efc50de2fc867c1b875e0431b4f54dd331b0a109a4e",
+  "canonical_sha256": "2475fae6778ee20b6319445ebca4b6c8a9d3aa24cb50cda9aba072a26dd8d0fb",
+  "total_rows": 2200,
+  "num_classes": 22,
+  "samples_per_class": 100,
+  "duplicate_features_detected": 0,
+  "licence_audit": {
+    "licence_status": "unresolved",
+    "note": "Kaggle Crop Recommendation benchmark dataset. Redistribution permission requires explicit verification."
+  },
+  "responsible_reviewer": "MDI3003 Research Pipeline Auditor",
+  "timestamp_utc": "2026-09-11T19:58:23.434844+00:00"
+}

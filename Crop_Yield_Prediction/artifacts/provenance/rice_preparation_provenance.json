@@ -1,0 +1,30 @@
+{
+  "raw_total_rows": 246091,
+  "raw_rice_rows": 15104,
+  "retained_canonical_rows": 15082,
+  "excluded_rows_count": 22,
+  "unique_states": 33,
+  "unique_districts": 625,
+  "unique_seasons": 6,
+  "unique_years": 19,
+  "year_min": 1997,
+  "year_max": 2015,
+  "yield_mean_t_ha": 1.9950137908624692,
+  "yield_median_t_ha": 1.9385290148448044,
+  "yield_std_t_ha": 2.048687113970817,
+  "raw_sha256": "6f63b251af6ffdb69f827a5a54735b7a84dea2be59db20efee2aa4c3173f3d57",
+  "canonical_sha256": "20b710a30414b1ac2a1829284a251aaf60298abb23c5b8017f656b320fec6295",
+  "unit_conversion": {
+    "production_source_unit": "Tonnes",
+    "area_source_unit": "Hectares",
+    "yield_target_unit": "t/ha",
+    "conversion_formula": "yield_t_ha = production_tonnes / area_hectares",
+    "verification_status": "verified_against_ministry_metadata"
+  },
+  "licence_audit": {
+    "licence_status": "unresolved",
+    "note": "Open Government Data (OGD) Platform India - National Data Sharing and Accessibility Policy (NDSAP). Redistribution permission requires explicit verification."
+  },
+  "responsible_reviewer": "MDI3003 Research Pipeline Auditor",
+  "timestamp_utc": "2026-09-11T19:58:23.312372+00:00"
+}

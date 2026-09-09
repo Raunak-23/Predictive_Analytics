@@ -1,0 +1,27 @@
+{
+  "dataset_id": "D1_government_crop_production_statistics",
+  "title": "District-wise, season-wise crop production statistics from 1997",
+  "endpoint": "https://api.data.gov.in/resource/35be999b-0208-4354-b557-f6ca9a5355de",
+  "request_parameters": {
+    "format": "json",
+    "limit": 10000,
+    "final_offset": 240000
+  },
+  "download_timestamp_utc": "2026-09-11T13:44:04.726504+00:00",
+  "number_of_records": 246091,
+  "number_of_pages": 25,
+  "raw_file": "d1_government_crop_statistics.csv",
+  "raw_sha256": "6f63b251af6ffdb69f827a5a54735b7a84dea2be59db20efee2aa4c3173f3d57",
+  "columns_received": [
+    "state_name",
+    "district_name",
+    "crop_year",
+    "season",
+    "crop",
+    "area_",
+    "production_"
+  ],
+  "http_status": "200 OK",
+  "source_publisher": "Ministry of Agriculture and Farmers Welfare, Government of India",
+  "portal": "Open Government Data (OGD) Platform India (data.gov.in)"
+}
