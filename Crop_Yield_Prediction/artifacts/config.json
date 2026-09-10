@@ -1,0 +1,208 @@
+{
+  "REG_FEATURES": [
+    "state",
+    "district",
+    "season",
+    "year"
+  ],
+  "REG_TARGET": "yield_t_ha",
+  "categorical_features": [
+    "state",
+    "district",
+    "season"
+  ],
+  "classification_configuration": {
+    "features": [
+      "N",
+      "P",
+      "K",
+      "temperature",
+      "humidity",
+      "ph",
+      "rainfall"
+    ],
+    "iid_justified_default": false,
+    "model_definitions": {
+      "forest": {
+        "class": "RandomForestClassifier",
+        "min_samples_leaf": 2,
+        "n_estimators": 60,
+        "n_jobs": 2,
+        "random_state": 42
+      },
+      "logistic": {
+        "class": "LogisticRegression",
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "majority": {
+        "class": "DummyClassifier",
+        "strategy": "most_frequent"
+      }
+    },
+    "target": "label"
+  },
+  "classification_tuning_grids": {
+    "forest": {
+      "model__max_depth": [
+        8,
+        12,
+        16
+      ],
+      "model__min_samples_leaf": [
+        1,
+        2,
+        4
+      ],
+      "model__n_estimators": [
+        40,
+        60,
+        100
+      ]
+    },
+    "logistic": {
+      "model__C": [
+        0.1,
+        1.0,
+        10.0
+      ]
+    }
+  },
+  "cv_configuration": {
+    "cv_partition_file": "artifacts/tuning/regression_cv_folds.csv",
+    "max_train_year_strictly_less_than_min_val_year": true,
+    "n_folds": 5,
+    "strategy": "forward_year_block_temporal_cv",
+    "strictly_forward": true,
+    "validation_years": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011
+    ]
+  },
+  "minimum_year_requirement": 7,
+  "model_definitions": {
+    "forest": {
+      "class": "RandomForestRegressor",
+      "max_depth": 12,
+      "min_samples_leaf": 5,
+      "n_estimators": 60,
+      "n_jobs": 2,
+      "random_state": 42
+    },
+    "median": {
+      "class": "DummyRegressor",
+      "strategy": "median"
+    },
+    "ridge_trend": {
+      "alpha": 1.0,
+      "class": "Ridge",
+      "random_state": 42,
+      "solver": "lsqr"
+    },
+    "tree": {
+      "class": "DecisionTreeRegressor",
+      "max_depth": 6,
+      "min_samples_leaf": 10,
+      "random_state": 42
+    }
+  },
+  "model_hyperparameters": {
+    "forest_max_depth": 12,
+    "forest_min_samples_leaf": 5,
+    "forest_n_estimators": 60,
+    "ridge_alpha": 1.0,
+    "tree_max_depth": 6,
+    "tree_min_samples_leaf": 10
+  },
+  "numeric_features": [
+    "year"
+  ],
+  "random_seed": 42,
+  "split_configuration": {
+    "min_required_years": 7,
+    "strategy": "chronological_holdout",
+    "test_years_count": 2,
+    "validation_years_count": 2
+  },
+  "tuning_grids": {
+    "classification": {
+      "forest": {
+        "model__max_depth": [
+          8,
+          12,
+          16
+        ],
+        "model__min_samples_leaf": [
+          1,
+          2,
+          4
+        ],
+        "model__n_estimators": [
+          40,
+          60,
+          100
+        ]
+      },
+      "logistic": {
+        "model__C": [
+          0.1,
+          1.0,
+          10.0
+        ]
+      }
+    },
+    "regression": {
+      "forest": {
+        "model__max_depth": [
+          8,
+          12,
+          16
+        ],
+        "model__min_samples_leaf": [
+          3,
+          5,
+          10
+        ],
+        "model__n_estimators": [
+          40,
+          60,
+          100
+        ]
+      },
+      "ridge_trend": {
+        "model__alpha": [
+          0.01,
+          0.03,
+          0.1,
+          0.2,
+          0.3,
+          0.5,
+          0.7,
+          1.0,
+          1.5,
+          2.0,
+          3.0,
+          5.0,
+          10.0,
+          20.0
+        ]
+      },
+      "tree": {
+        "model__max_depth": [
+          4,
+          6,
+          8,
+          10
+        ],
+        "model__min_samples_leaf": [
+          5,
+          10,
+          20
+        ]
+      }
+    }
+  }
+}
