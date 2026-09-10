@@ -1,0 +1,19 @@
+{
+  "status": "PASSED",
+  "file": "crop_labels_canonical.csv",
+  "sha256": "2475fae6778ee20b6319445ebca4b6c8a9d3aa24cb50cda9aba072a26dd8d0fb",
+  "total_rows": 2200,
+  "num_classes": 22,
+  "min_class_count": 100,
+  "features": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "target": "label",
+  "duplicate_feature_vectors": 0
+}

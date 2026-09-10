@@ -1,0 +1,23 @@
+{
+  "status": "PASSED",
+  "file": "valid_rice.csv",
+  "sha256": "dd654118f1ccb08dbbed8dc45aa6917469c460a4b5bb633f09500d6e4f97e5e0",
+  "total_rows": 10,
+  "unique_years_count": 10,
+  "year_range": [
+    2000,
+    2009
+  ],
+  "unique_states_count": 1,
+  "unique_districts_count": 10,
+  "unique_seasons_count": 1,
+  "yield_summary_t_ha": {
+    "min": 2.5,
+    "mean": 2.95,
+    "median": 2.95,
+    "max": 3.4,
+    "std": 0.30276503540974914
+  },
+  "duplicate_agricultural_keys": 0,
+  "leakage_check_passed": true
+}
