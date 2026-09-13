@@ -1,0 +1,45 @@
+{
+  "model_family": "ridge_trend",
+  "search_method": "GridSearchCV",
+  "cv_splitter": "forward_year_block_temporal_cv",
+  "n_folds": 5,
+  "validation_years": [
+    2007,
+    2008,
+    2009,
+    2010,
+    2011
+  ],
+  "parameter_grid": {
+    "model__alpha": [
+      0.01,
+      0.03,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.7,
+      1.0,
+      1.5,
+      2.0,
+      3.0,
+      5.0,
+      10.0,
+      20.0
+    ]
+  },
+  "best_params": {
+    "model__alpha": 0.3
+  },
+  "best_cv_mae_t_ha": 0.3761,
+  "validation_metrics": {
+    "MAE": 0.5128,
+    "RMSE": 0.8032,
+    "R2": 0.3054
+  },
+  "tune_seconds": 39.18,
+  "data_sha256": "20b710a30414b1ac2a1829284a251aaf60298abb23c5b8017f656b320fec6295",
+  "config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d",
+  "random_seed": 42,
+  "artifact_path": "tuned_selected_model.joblib"
+}

@@ -1,0 +1,9 @@
+{
+  "initial_selected_model": "ridge_trend",
+  "selection_metric": "min_validation_MAE",
+  "validation_MAE": 0.5135,
+  "validation_RMSE": 0.7983,
+  "validation_R2": 0.3138,
+  "data_sha256": "20b710a30414b1ac2a1829284a251aaf60298abb23c5b8017f656b320fec6295",
+  "config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d"
+}

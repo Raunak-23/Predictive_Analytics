@@ -1,0 +1,38 @@
+{
+  "model_family": "forest",
+  "search_method": "GridSearchCV",
+  "cv_splitter": "StratifiedKFold(n_splits=3)",
+  "parameter_grid": {
+    "model__n_estimators": [
+      40,
+      60,
+      100
+    ],
+    "model__max_depth": [
+      8,
+      12,
+      16
+    ],
+    "model__min_samples_leaf": [
+      1,
+      2,
+      4
+    ]
+  },
+  "best_params": {
+    "model__max_depth": 8,
+    "model__min_samples_leaf": 2,
+    "model__n_estimators": 60
+  },
+  "best_cv_macro_f1": 0.9939,
+  "validation_metrics": {
+    "accuracy": 0.9864,
+    "macro_precision": 0.987,
+    "macro_recall": 0.9864,
+    "macro_F1": 0.9863
+  },
+  "tune_seconds": 40.8,
+  "data_sha256": "2475fae6778ee20b6319445ebca4b6c8a9d3aa24cb50cda9aba072a26dd8d0fb",
+  "config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d",
+  "random_seed": 42
+}
