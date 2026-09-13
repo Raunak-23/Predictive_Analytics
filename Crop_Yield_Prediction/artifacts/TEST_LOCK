@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-09-11T20:02:51Z",
+  "selected_model": "ridge_trend_tuned",
+  "selected_model_family": "ridge_trend",
+  "data_sha256": "20b710a30414b1ac2a1829284a251aaf60298abb23c5b8017f656b320fec6295",
+  "config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d",
+  "test_years": [
+    2014,
+    2015
+  ],
+  "selection_sha256": "1a0eafbf3e8c8ba69890ab382b7f1c65a908b306df16e02cc67cbaf0aabe9762"
+}
