@@ -1,0 +1,15 @@
+{
+  "dataset": "D3 Crop Recommendation",
+  "iid_justified": true,
+  "iid_justification_rationale": "D3 is a curated/synthetic/augmented benchmark. Stratified 60/20/20 partitioning is applied under the operational assumption of observation independence for agricultural advisory screening. Exact statistical independence is not empirically established across all potential covariates.",
+  "split_counts": {
+    "train": 1320,
+    "validation": 440,
+    "test": 440
+  },
+  "classes_count": 22,
+  "selected_model": "forest",
+  "use_tuned": false,
+  "data_sha256": "2475fae6778ee20b6319445ebca4b6c8a9d3aa24cb50cda9aba072a26dd8d0fb",
+  "config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d"
+}
