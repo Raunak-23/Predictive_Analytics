@@ -1,0 +1,131 @@
+{
+  "acceptance_status": "PASSED",
+  "total_checks_count": 16,
+  "checks": {
+    "environment": {
+      "status": "PASSED",
+      "details": {
+        "python_version": "3.13.15",
+        "platform": "Windows-11-10.0.22621-SP0",
+        "numpy_version": "2.5.2",
+        "pandas_version": "3.0.5",
+        "scikit_learn_version": "1.9.0",
+        "joblib_version": "1.5.3",
+        "matplotlib_version": "3.11.1",
+        "requests_version": "2.34.2",
+        "nbformat_version": "5.11.1",
+        "nbconvert_version": "7.17.1",
+        "dotenv_version": "1.2.3",
+        "random_seed": 42
+      },
+      "mismatches": []
+    },
+    "file_rice_canonical": {
+      "status": "PASSED",
+      "sha256": "20b710a30414b1ac2a1829284a251aaf60298abb23c5b8017f656b320fec6295"
+    },
+    "file_crop_labels_canonical": {
+      "status": "PASSED",
+      "sha256": "2475fae6778ee20b6319445ebca4b6c8a9d3aa24cb50cda9aba072a26dd8d0fb"
+    },
+    "file_d1_raw": {
+      "status": "PASSED",
+      "provenance_raw_sha256": "6f63b251af6ffdb69f827a5a54735b7a84dea2be59db20efee2aa4c3173f3d57",
+      "note": "Raw file excluded from public repo per policy; acquisition hash and provenance verified."
+    },
+    "file_d3_raw": {
+      "status": "PASSED",
+      "provenance_raw_sha256": "54a5a6e5408668e668667efc50de2fc867c1b875e0431b4f54dd331b0a109a4e",
+      "note": "Raw file excluded from public repo per policy; acquisition hash and provenance verified."
+    },
+    "selection_artifact": {
+      "status": "PASSED",
+      "model": "ridge_trend_tuned",
+      "data_sha256_matched": true,
+      "recorded_data_sha256": "20b710a30414b1ac2a1829284a251aaf60298abb23c5b8017f656b320fec6295",
+      "current_data_sha256": "20b710a30414b1ac2a1829284a251aaf60298abb23c5b8017f656b320fec6295"
+    },
+    "config_artifacts": {
+      "status": "PASSED",
+      "config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d",
+      "current_config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d",
+      "hash_matched": true
+    },
+    "config_hash_propagation": {
+      "status": "PASSED",
+      "current_config_sha256": "9c97a1fb48472e56a81179d8788214e90d60d09eb6a131a931808a3886dc5a9d",
+      "mismatches": []
+    },
+    "split_manifest": {
+      "status": "PASSED",
+      "total_rows": 15082,
+      "train_count": 12592,
+      "val_count": 1644,
+      "test_count": 846,
+      "unique_row_ids": 15082,
+      "counts_strictly_valid": true,
+      "train_max_year": 2011,
+      "val_min_year": 2012,
+      "val_max_year": 2013,
+      "test_min_year": 2014,
+      "temporal_ordering_strictly_disjoint": "True"
+    },
+    "test_lock": {
+      "status": "PASSED",
+      "lock_path": "artifacts/TEST_LOCK",
+      "lock_present": true,
+      "consistency_errors": []
+    },
+    "source_anomaly_audit": {
+      "status": "PASSED",
+      "training_rows_only": true,
+      "kolhapur_1997_detected": true,
+      "flagged_rows_count": 4
+    },
+    "overfitting_diagnostics": {
+      "status": "PASSED",
+      "missing_columns": [],
+      "selected_model_in_table": true,
+      "selected_model": "ridge_trend_tuned",
+      "models_present": [
+        "median",
+        "ridge_trend",
+        "tree",
+        "forest",
+        "ridge_trend_tuned"
+      ]
+    },
+    "regression_bundle_reload": {
+      "status": "PASSED",
+      "prediction_identity": true,
+      "sample_prediction_t_ha": [
+        2.435,
+        2.5957,
+        2.4021,
+        2.5627,
+        3.3176
+      ]
+    },
+    "classification_bundle_reload": {
+      "status": "PASSED",
+      "prediction_identity": true,
+      "sample_classes": [
+        "rice",
+        "rice",
+        "rice",
+        "rice",
+        "rice"
+      ]
+    },
+    "inference_safeguards": {
+      "status": "PASSED",
+      "out_of_range_year_rejected": true,
+      "unknown_category_rejected": true
+    },
+    "required_artifacts": {
+      "status": "PASSED",
+      "missing_count": 0,
+      "missing_files": []
+    }
+  }
+}
